@@ -52,6 +52,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
+    database_cleaner (1.5.0)
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
     erubis (2.7.0)
@@ -90,6 +91,7 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.3)
+    jwt (1.5.1)
     listen (3.0.3)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -209,11 +211,13 @@ DEPENDENCIES
   bcrypt-ruby (>= 3.1.2)
   byebug
   coffee-rails (~> 4.1.0)
+  database_cleaner
   factory_girl_rails
   faker
   guard-rspec
   jbuilder (~> 2.0)
   jquery-rails
+  jwt
   rails (= 4.2.4)
   rspec-rails
   sass-rails (~> 5.0)

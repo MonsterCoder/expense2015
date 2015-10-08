@@ -68,3 +68,13 @@ guard :rspec, cmd: "bundle exec rspec --format documentation --color" do
     Dir[File.join("**/#{m[1]}.feature")][0] || "spec/acceptance"
   end
 end
+
+coffeescript_options = {
+  input: 'client/javascripts',
+  output: 'public/app/',
+  patterns: [%r{^client/javascripts/(.+\.(?:coffee|coffee\.md|litcoffee))$}]
+}
+
+guard 'coffeescript', coffeescript_options do
+  coffeescript_options[:patterns].each { |pattern| watch(pattern) }
+end

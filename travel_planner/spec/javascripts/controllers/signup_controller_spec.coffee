@@ -9,6 +9,7 @@ describe 'signup_controller', ->
   beforeEach inject (_$state_,_$rootScope_, _$controller_, _$httpBackend_, $templateCache) ->
       $templateCache.put "app/views/login.html", ""
       $templateCache.put "app/views/signup.html", ""
+      $templateCache.put "app/views/welcome.html", ""
       $state = _$state_;
       $scope = _$rootScope_.$new()
       $rootScope = _$rootScope_
@@ -52,7 +53,7 @@ describe 'signup_controller', ->
         
   describe 'signup failed', ->
     beforeEach ->
-      $httpBackend.whenPOST("/users", $scope.data, (headers) ->
+      $httpBackend.whenPOST("/users", {user: $scope.data}, (headers) ->
         expect(headers['Content-Type']).toContain('application/json')
         true
       ).respond(400,  {message: "signup failed"})
@@ -69,7 +70,7 @@ describe 'signup_controller', ->
       
   describe "signup succeed", ->
     beforeEach ->
-      $httpBackend.whenPOST("/users", $scope.data, (headers) ->
+      $httpBackend.whenPOST("/users", {user: $scope.data}, (headers) ->
         expect(headers['Content-Type']).toContain('application/json')
         true
       ).respond(200,  {message: "signup successful"})

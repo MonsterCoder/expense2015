@@ -4,17 +4,17 @@ angular.module("TravePlannerApp")
   $scope.isValid = ->
     !!($scope.data.firstname and $scope.data.lastname and $scope.data.username and $scope.data.password and $scope.data.password_confirmation and $scope.data.email and ($scope.data.password == $scope.data.password_confirmation))
   $scope.signup = ->
+    console.log("*******")
+    console.log($scope.data)
     $http
-    .post '/users', 
-        username: $scope.data.username
-        password: $scope.data.password
-        password_confirmation: $scope.data.password_confirmation
-        firstname: $scope.data.firstname
-        lastname: $scope.data.lastname
-        email: $scope.data.email
+    .post '/users', { user: $scope.data }
     .then (result) ->
           $state.go("login")
     .catch (err)  -> 
           $scope.errors =[err.data.message]
+    true
+  $scope.match_password = ->
+    'ng-invalid-pattern' unless $scope.data.password == $scope.data.password_confirmation
+  true
     
 ])

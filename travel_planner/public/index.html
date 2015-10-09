@@ -1,13 +1,48 @@
 <html>
   <head>
-      <script src = 'components/angular/angular.js'></script>
-      <script src = 'components/angular-ui-router/release/angular-ui-router.min.js'></script>
-      <script src="app/app.js"></script>
-      <script src="app/controllers/signupController.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Travel planner, TDD with Rails, REST, Angular">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href='components/material-design-lite/material.min.css'>
+    <script src = 'components/angular/angular.js'></script>
+    <script src = 'components/angular-ui-router/release/angular-ui-router.min.js'></script>
+    <script src = 'components/material-design-lite/material.min.js'></script>
+    <script src="app/app.js"></script>
+    <script src="app/controllers/signupController.js"></script>
+    <link rel='stylesheet' href="components/material-design-lite/material.css"></link>
+    <link rel='stylesheet' href='app/stylesheets/app.css'></link>
+    <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+    </style>
   </head>
   <body ng-app="TravePlannerApp">
-    <h2>Travel Planner</h2>
-    <div ui-view>
-    </div>
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <span class="mdl-layout-title">Travel Planner</span>
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="mdl-layout-spacer"></div>
+        <!-- Navigation. We hide it in small screens. -->
+        <nav class="mdl-navigation mdl-layout--large-screen-only">
+          <a class="mdl-navigation__link" ui-sref="login">login</a>
+          <a class="mdl-navigation__link" ui-sref="signup">signup</a>
+        </nav>
+      </div>
+    </header>
+    <main class="mdl-layout__content"  autoscroll="false">
+      <div class="page-content" ui-view></div>
+    </main>
+
   </body>
 </html>

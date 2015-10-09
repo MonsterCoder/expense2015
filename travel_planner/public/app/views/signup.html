@@ -1,1 +1,20 @@
-<h4> User sign up</h4>
+<form name="signupForm" class="mdl-card">
+  <div class="mdl-card_title">
+    <span> Create Account</span>
+  </div>
+
+  <div class="mdl-card__supporting-text">
+    <input ng-model="data.username" ng-required="true" placeholder="username"></input> <br/>
+    <input ng-model="data.password" type="password" ng-required="true"  placeholder="password"></input> <br/>
+    <input ng-model="data.password_confirmation" type="password" ng-required="true" ng-class="match_password()"  placeholder="password confirmation"></input> <br/>
+    <input ng-model="data.email"  ng-required="true" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" placeholder="email"></input> <br/>
+    <input ng-model="data.firstname"  ng-required="true" placeholder="first name"></input> <br/>
+    <input ng-model="data.lastname"  ng-required="true" placeholder="last name"></input> <br/>
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click="signup()" ng-disabled="!signupForm.$valid">
+      Sign Up!
+    </a>
+    <p ng-repeat="err in errors">{{err}}</p>
+  </div>
+<form>

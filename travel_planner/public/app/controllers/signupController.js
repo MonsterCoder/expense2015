@@ -5,20 +5,24 @@
       $scope.isValid = function() {
         return !!($scope.data.firstname && $scope.data.lastname && $scope.data.username && $scope.data.password && $scope.data.password_confirmation && $scope.data.email && ($scope.data.password === $scope.data.password_confirmation));
       };
-      return $scope.signup = function() {
-        return $http.post('/users', {
-          username: $scope.data.username,
-          password: $scope.data.password,
-          password_confirmation: $scope.data.password_confirmation,
-          firstname: $scope.data.firstname,
-          lastname: $scope.data.lastname,
-          email: $scope.data.email
+      $scope.signup = function() {
+        console.log("*******");
+        console.log($scope.data);
+        $http.post('/users', {
+          user: $scope.data
         }).then(function(result) {
           return $state.go("login");
         })["catch"](function(err) {
           return $scope.errors = [err.data.message];
         });
+        return true;
       };
+      $scope.match_password = function() {
+        if ($scope.data.password !== $scope.data.password_confirmation) {
+          return 'ng-invalid-pattern';
+        }
+      };
+      return true;
     }
   ]);
 

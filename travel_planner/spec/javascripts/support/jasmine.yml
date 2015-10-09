@@ -1,5 +1,8 @@
 src_files:
-  - public/**/*.js
+  - public/components/angular/angular.js
+  - public/components/angular-mocks/angular-mocks.js
+  - public/components/angular-ui-router/release/angular-ui-router.js
+  - public/app/**/*.js
 stylesheets:
   - assets/application.css
 

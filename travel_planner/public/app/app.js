@@ -4,6 +4,8 @@
       $urlRouterProvider.otherwise("/login");
       return $stateProvider.state('login', {
         'url': '/login'
+      }).state('signup', {
+        'url': '/signup'
       });
     }
   ]);

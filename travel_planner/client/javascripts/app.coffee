@@ -6,4 +6,7 @@
     .state('login',
       'url' : '/login' 
     )
+    .state('signup',
+      'url' : '/signup'
+    )
  ])

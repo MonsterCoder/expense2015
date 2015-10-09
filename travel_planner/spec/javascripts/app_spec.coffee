@@ -3,7 +3,8 @@ describe "travel planner app",  ->
     $rootScope = {}
     beforeEach module "TravePlannerApp"
     
-    beforeEach inject (_$state_, _$rootScope_) ->
+    beforeEach inject (_$state_, _$rootScope_, $templateCache) ->
+        $templateCache.put "app/views/login.html", ""
         $state = _$state_
         $rootScope = _$rootScope_
         $rootScope.$apply()

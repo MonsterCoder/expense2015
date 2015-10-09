@@ -6,7 +6,9 @@ describe 'signup_controller', ->
   $sut = {}
   beforeEach module "TravePlannerApp"
   
-  beforeEach inject (_$state_,_$rootScope_, _$controller_, _$httpBackend_) ->
+  beforeEach inject (_$state_,_$rootScope_, _$controller_, _$httpBackend_, $templateCache) ->
+      $templateCache.put "app/views/login.html", ""
+      $templateCache.put "app/views/signup.html", ""
       $state = _$state_;
       $scope = _$rootScope_.$new()
       $rootScope = _$rootScope_

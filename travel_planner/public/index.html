@@ -1,7 +1,13 @@
 <html>
   <head>
+      <script src = 'components/angular/angular.js'></script>
+      <script src = 'components/angular-ui-router/release/angular-ui-router.min.js'></script>
+      <script src="app/app.js"></script>
+      <script src="app/controllers/signupController.js"></script>
   </head>
-  <body>
+  <body ng-app="TravePlannerApp">
     <h2>Travel Planner</h2>
+    <div ui-view>
+    </div>
   </body>
 </html>

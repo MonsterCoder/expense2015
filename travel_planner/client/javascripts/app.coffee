@@ -4,9 +4,11 @@
     
     $stateProvider
     .state('login',
-      'url' : '/login' 
+      url : '/login',
+      templateUrl : 'app/views/login.html'
     )
     .state('signup',
-      'url' : '/signup'
+      url : '/signup',
+      templateUrl : 'app/views/signup.html'
     )
  ])

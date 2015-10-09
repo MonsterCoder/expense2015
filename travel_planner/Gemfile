@@ -10,13 +10,20 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-
+gem 'bcrypt-ruby', '>= 3.1.2'
+gem 'jwt'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'rspec-rails'
   gem 'guard-rspec'
   gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'database_cleaner'
+  gem 'therubyracer'
+  gem 'guard-coffeescript'
+  gem 'jasmine-rails'
+  gem 'guard-jasmine'
 end
 
 group :development do

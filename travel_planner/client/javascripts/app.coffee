@@ -17,4 +17,8 @@
       templateUrl : 'app/views/signup.html',
       controller : 'signupController'
     )
+    .state('trips', 
+      url : '/trips'
+      templateUrl: 'app/views/trips.html'
+    )
  ])

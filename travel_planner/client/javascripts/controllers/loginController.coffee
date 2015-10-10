@@ -1,5 +1,5 @@
 angular.module("TravePlannerApp")
-.controller("loginController",['$scope', '$http', 'userservice', ($scope, $http, UserService) ->
+.controller("loginController",['$scope', '$http', '$state', 'userservice', ($scope, $http, $state, UserService) ->
   $scope.title ="User Login"
   
   $scope.login = ->
@@ -7,6 +7,7 @@ angular.module("TravePlannerApp")
     .post('/auth', {username: $scope.username, password: $scope.password})
     .then (result) ->
       UserService.setToken result.data.token
+      $state.go("trips")
     .catch (err) ->
       $scope.errors = [err.data.message]
 ])

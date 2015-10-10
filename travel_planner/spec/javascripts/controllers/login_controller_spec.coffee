@@ -11,6 +11,7 @@ describe "loginController", ->
       $templateCache.put "app/views/login.html", ""
       $templateCache.put "app/views/signup.html", ""
       $templateCache.put "app/views/welcome.html", ""
+      $templateCache.put "app/views/trips.html", ""
       $state = _$state_
       $scope = _$rootScope_.$new()
       $scope.username = "user1"
@@ -47,4 +48,6 @@ describe "loginController", ->
       
     it " saves returned token", ->
       expect(userService.setToken).toHaveBeenCalledWith("abcdefg123456")
+    it " goes to trips state", ->
+      expect($state.current.name).toEqual("trips")
     

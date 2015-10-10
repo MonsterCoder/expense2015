@@ -1,4 +1,4 @@
 angular.module('TravePlannerApp')
-.factory('UserService', (store) ->
+.factory('UserService', () ->
    store.getNamespacedStore('auth0')
 )

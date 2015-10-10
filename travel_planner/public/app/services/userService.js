@@ -1,5 +1,5 @@
 (function() {
-  angular.module('TravePlannerApp').factory('UserService', function(store) {
+  angular.module('TravePlannerApp').factory('UserService', function() {
     return store.getNamespacedStore('auth0');
   });
 

@@ -6,8 +6,6 @@
         return !!($scope.data.firstname && $scope.data.lastname && $scope.data.username && $scope.data.password && $scope.data.password_confirmation && $scope.data.email && ($scope.data.password === $scope.data.password_confirmation));
       };
       $scope.signup = function() {
-        console.log("*******");
-        console.log($scope.data);
         $http.post('/users', {
           user: $scope.data
         }).then(function(result) {

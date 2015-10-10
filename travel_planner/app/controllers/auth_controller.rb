@@ -5,8 +5,7 @@ class AuthController < ApplicationController
     u = User.find_by_username(username)
     
     if u && u.authenticate(password)
-      token = JWT.encode({user_id: u.id}, Rails.application.secrets.secret_key_base)
-      render json: {token: token }
+      render json: {token: u.getToken }
     else
       render json: {message: "username password not match"}, status: :unauthorized
     end

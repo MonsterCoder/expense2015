@@ -1,5 +1,5 @@
 (function() {
-  angular.module("TravePlannerApp", ['ui.router']).config([
+  angular.module("TravePlannerApp", ['ui.router', 'angular-storage']).config([
     '$urlRouterProvider', '$stateProvider', function($urlRouterProvider, $stateProvider) {
       $urlRouterProvider.otherwise("/welcome");
       return $stateProvider.state('welcome', {

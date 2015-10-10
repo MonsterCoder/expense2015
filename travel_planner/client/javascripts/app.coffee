@@ -1,4 +1,4 @@
- angular.module("TravePlannerApp", ['ui.router'])
+ angular.module("TravePlannerApp", ['ui.router','angular-storage'])
  .config(['$urlRouterProvider','$stateProvider', ($urlRouterProvider, $stateProvider) ->
     $urlRouterProvider.otherwise("/welcome")
     

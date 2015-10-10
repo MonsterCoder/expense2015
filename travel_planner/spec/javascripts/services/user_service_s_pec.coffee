@@ -3,7 +3,8 @@ describe "user service", ->
   $scope = {}
   $rootScope = {}
   $httpBackend = {}
-  userService = {}
+  _userService = {}
+  
   beforeEach module "TravePlannerApp"
   
   beforeEach inject (_$state_,_$rootScope_, _$controller_, _$httpBackend_, $templateCache) ->
@@ -19,4 +20,4 @@ describe "user service", ->
       $rootScope.$apply()
       
   it " has a service ", ->
-    expect(userService).not.toEqual({})
+    expect(_userService).not.toEqual({})

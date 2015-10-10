@@ -1,4 +1,9 @@
 angular.module('TravePlannerApp')
-.factory('UserService', () ->
-   store.getNamespacedStore('auth0')
+.factory('UserProfileService', ($rootScope) ->
+    setToken: (token) ->
+      @token = token
+    isLoggedIn: ->
+      !!@token
+    logout: ->
+      @token = null
 )

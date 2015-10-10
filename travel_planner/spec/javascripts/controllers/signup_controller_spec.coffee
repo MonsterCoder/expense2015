@@ -10,7 +10,7 @@ describe 'signup_controller', ->
       $templateCache.put "app/views/login.html", ""
       $templateCache.put "app/views/signup.html", ""
       $templateCache.put "app/views/welcome.html", ""
-      $state = _$state_;
+      $state = _$state_
       $scope = _$rootScope_.$new()
       $rootScope = _$rootScope_
       $httpBackend = _$httpBackend_

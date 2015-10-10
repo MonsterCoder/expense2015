@@ -10,6 +10,7 @@
     .state('login',
       url : '/login',
       templateUrl : 'app/views/login.html'
+      controller : 'loginController'
     )
     .state('signup',
       url : '/signup',

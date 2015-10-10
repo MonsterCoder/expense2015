@@ -7,7 +7,8 @@
         templateUrl: 'app/views/welcome.html'
       }).state('login', {
         url: '/login',
-        templateUrl: 'app/views/login.html'
+        templateUrl: 'app/views/login.html',
+        controller: 'loginController'
       }).state('signup', {
         url: '/signup',
         templateUrl: 'app/views/signup.html',

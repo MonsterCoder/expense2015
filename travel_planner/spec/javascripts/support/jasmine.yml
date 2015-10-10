@@ -1,5 +1,9 @@
 src_files:
-  - public/**/*.js
+  - public/components/angular/angular.js
+  - public/components/angular-mocks/angular-mocks.js
+  - public/components/angular-ui-router/release/angular-ui-router.js
+  - public/components/angular-storage/dist/angular-storage.min.js
+  - public/app/**/*.js
 stylesheets:
   - assets/application.css
 
@@ -7,7 +11,7 @@ helpers:
   - 'helpers/**/*.js'
 
 spec_files:
-  - '**/*[sS]pec.js'
+    - "**/*[Ss]pec.{js,coffee}"
 
 src_dir:
 

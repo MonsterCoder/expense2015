@@ -19,8 +19,8 @@ describe "loginController", ->
       $rootScope = _$rootScope_
       $httpBackend = _$httpBackend_
       $state.go('login')
-      userService = jasmine.createSpyObj('userService', ['setToken'])
-      $sut = _$controller_("loginController", {$scope: $scope, userservice: userService})
+      userService = jasmine.createSpyObj('userservice', ['setToken'])
+      $sut = _$controller_("loginController", {$scope: $scope, UserProfileService: userService})
       $rootScope.$apply()
   
   describe ' login failed ', ->

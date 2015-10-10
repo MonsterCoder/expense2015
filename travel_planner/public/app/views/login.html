@@ -1,2 +1,14 @@
-<h3>{{title}}</h3>
-<a ui-sref="signup">Singup</a>
+<h3>User Login</h3>
+{{title}}
+<form name="userLoginForm">
+  <input ng-model="username" ng-required='true' placeholder='username'></input>
+  <input ng-model='password' ng-required='true' placeholder='password'></input>
+  <div class="mdl-card__actions mdl-card--border">
+    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click="login()" ng-disabled="!userLoginForm.$valid">
+      Login
+    </a>
+    <p ng-repeat="err in errors">{{err}}</p>
+  </div>
+</form>
+
+<a ui-sref="signup" href="">Singup</a>

@@ -21,8 +21,6 @@ RSpec.describe 'account', type: :request do
     
     
     context "invalid attributes" do
-
-      
       it "rejects request and returns correct error" do
         data['password_confirmation'] ='890000'
          expect{ post users_path, {  user: data }.to_json, { 'Content-Type': 'application/json'} }.to change(User, :count).by(0)

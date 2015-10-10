@@ -11,7 +11,7 @@ describe 'authentication' do
       expect(response.status).to eql 401
     end
     
-    it (" returns a token when login successfully") do
+    it (" returns a token when login succeed") do
       post auth_path, { username: 'u1', password: '123'}.to_json, {'content-type': 'application/json'}
       token = JSON.parse(response.body)["token"]
       user_id = JWT.decode(token, Rails.application.secrets.secret_key_base)[0]['user_id']

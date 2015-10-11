@@ -7,7 +7,7 @@ describe "loginController", ->
   $sut = {}
   beforeEach module "TravePlannerApp"
   
-  beforeEach inject (_$state_,_$rootScope_, _$controller_, _$httpBackend_, $templateCache) ->
+  beforeEach inject (_$state_,_$rootScope_, _$controller_, _$httpBackend_, $templateCache, UserProfileService) ->
       $templateCache.put "app/views/login.html", ""
       $templateCache.put "app/views/signup.html", ""
       $templateCache.put "app/views/welcome.html", ""
@@ -19,7 +19,7 @@ describe "loginController", ->
       $rootScope = _$rootScope_
       $httpBackend = _$httpBackend_
       $state.go('login')
-      userService = jasmine.createSpyObj('userservice', ['setToken'])
+      userService = UserProfileService
       $sut = _$controller_("loginController", {$scope: $scope, UserProfileService: userService})
       $rootScope.$apply()
   
@@ -47,7 +47,8 @@ describe "loginController", ->
       $rootScope.$apply()
       
     it " saves returned token", ->
-      expect(userService.setToken).toHaveBeenCalledWith("abcdefg123456")
+      expect(userService.token()).toEqual("abcdefg123456")
+      
     it " goes to trips state", ->
       expect($state.current.name).toEqual("trips")
     

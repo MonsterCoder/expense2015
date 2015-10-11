@@ -15,8 +15,21 @@
         controller: 'signupController'
       }).state('trips', {
         url: '/trips',
-        templateUrl: 'app/views/trips.html'
+        templateUrl: 'app/views/trips.html',
+        data: {
+          login: true
+        }
       });
+    }
+  ]).run([
+    '$rootScope', '$state', 'UserProfileService', function($rootScope, $state, UserProfileService) {
+      $rootScope.$on('$stateChangeStart', function(event, toState) {
+        if (toState.data && toState.data.login === true && !UserProfileService.isLoggedIn()) {
+          event.preventDefault();
+          return $state.go('login');
+        }
+      });
+      return true;
     }
   ]);
 

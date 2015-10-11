@@ -20,5 +20,16 @@
     .state('trips', 
       url : '/trips'
       templateUrl: 'app/views/trips.html'
+      data:
+        login: true
     )
+ ])
+ .run(['$rootScope', '$state','UserProfileService', ($rootScope, $state, UserProfileService) ->
+    $rootScope.$on('$stateChangeStart', (event, toState) ->
+      if toState.data and toState.data.login==true and !UserProfileService.isLoggedIn()
+         event.preventDefault()
+         $state.go('login')
+    )
+    
+    true
  ])

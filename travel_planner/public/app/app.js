@@ -1,8 +1,8 @@
 (function() {
-  angular.module("TravePlannerApp", ['ui.router', 'TravePlannerApp.service.serProfileService']).config([
-    '$urlRouterProvider', '$stateProvider', function($urlRouterProvider, $stateProvider) {
+  angular.module("TravePlannerApp", ['ui.router', 'TravePlannerApp.service.serProfileService', 'TravePlannerApp.interceptor.tokenHttpInterceptor']).config([
+    '$urlRouterProvider', '$stateProvider', '$httpProvider', function($urlRouterProvider, $stateProvider, $httpProvider) {
       $urlRouterProvider.otherwise("/welcome");
-      return $stateProvider.state('welcome', {
+      $stateProvider.state('welcome', {
         url: '/welcome',
         templateUrl: 'app/views/welcome.html'
       }).state('login', {
@@ -20,6 +20,7 @@
           login: true
         }
       });
+      return $httpProvider.interceptors.push('tokenHttpInterceptor');
     }
   ]).run([
     '$rootScope', '$state', 'UserProfileService', function($rootScope, $state, UserProfileService) {

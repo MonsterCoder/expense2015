@@ -1,5 +1,5 @@
- angular.module("TravePlannerApp", ['ui.router','TravePlannerApp.service.serProfileService'])
- .config(['$urlRouterProvider','$stateProvider', ($urlRouterProvider, $stateProvider) ->
+ angular.module("TravePlannerApp", ['ui.router','TravePlannerApp.service.serProfileService','TravePlannerApp.interceptor.tokenHttpInterceptor'])
+ .config(['$urlRouterProvider','$stateProvider','$httpProvider', ($urlRouterProvider, $stateProvider, $httpProvider) ->
     $urlRouterProvider.otherwise("/welcome")
     
     $stateProvider
@@ -23,6 +23,8 @@
       data:
         login: true
     )
+    
+    $httpProvider.interceptors.push('tokenHttpInterceptor')
  ])
  .run(['$rootScope', '$state','UserProfileService', ($rootScope, $state, UserProfileService) ->
     $rootScope.$on('$stateChangeStart', (event, toState) ->

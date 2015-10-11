@@ -28,5 +28,23 @@ describe "trips" do
       expect(response.status).to equal 200 
       
     end
+    
+    it " updates a trip " do
+      t = FactoryGirl.create(:trip, user: @user1)
+      put trip_path(t), {data: { destination: 'abc'}}.to_json, headers
+      expect(response.status).to equal 200 
+      t.reload
+      expect(t.destination).to eq 'abc'
+
+      
+    end
+    
+    it " delete a trip " do
+      t = FactoryGirl.create(:trip, user: @user1)
+      expect{ delete trip_path(t), {}, headers}.to change(Trip, :count).by -1
+      expect(response.status).to equal 200 
+      
+    end
+    
   end
 end

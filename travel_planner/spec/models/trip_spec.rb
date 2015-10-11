@@ -1,23 +1,34 @@
 require 'rails_helper'
 
 RSpec.describe Trip, type: :model do
+  before :all do
+    @user = FactoryGirl.create(:user)
+  end
+  
+  before :each do
+    @trip = FactoryGirl.build(:trip, user: @user)
+  end
+  
   it " has a valide factory " do
-    expect(FactoryGirl.build(:trip)).to be_valid
+    expect(@trip).to be_valid
   end
   
   it " requires a destination" do
-    expect(FactoryGirl.build(:trip, destination: nil)).not_to be_valid
+    @trip.destination = nil
+    expect(@trip).not_to be_valid
   end
   
   it " requires a start date" do
-    expect(FactoryGirl.build(:trip, startDate: nil)).not_to be_valid
+    @trip.startDate = nil
+    expect(@trip).not_to be_valid
   end
   
   it " requires a start date" do
-    expect(FactoryGirl.build(:trip, endDate: nil)).not_to be_valid
+    @trip.endDate = nil
+    expect(@trip).not_to be_valid
   end
   
   it " requires end date after start date" do
-    expect(FactoryGirl.build(:trip, endDate: 1.day, startDate: 2.day)).not_to be_valid
+    expect(FactoryGirl.build(:trip,user: @user, endDate: 1.day, startDate: 2.day)).not_to be_valid
   end
 end

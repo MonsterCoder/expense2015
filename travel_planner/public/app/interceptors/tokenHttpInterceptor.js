@@ -1,5 +1,5 @@
 (function() {
-  angular.module("TravePlannerApp.interceptor.tokenHttpInterceptor", ['TravePlannerApp.service.serProfileService']).factory('tokenHttpInterceptor', [
+  angular.module("TravePlannerApp.interceptor", ['TravePlannerApp.service.UserProfileService']).factory('tokenHttpInterceptor', [
     'UserProfileService', function(UserProfileService) {
       return {
         request: function(config) {

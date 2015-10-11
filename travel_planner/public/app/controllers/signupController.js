@@ -1,5 +1,5 @@
 (function() {
-  angular.module("TravePlannerApp").controller("signupController", [
+  angular.module("TravePlannerApp.contorller.signupController", []).controller("signupController", [
     '$state', '$scope', '$http', function($state, $scope, $http) {
       $scope.data = {};
       $scope.isValid = function() {

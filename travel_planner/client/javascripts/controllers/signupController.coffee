@@ -1,4 +1,4 @@
-angular.module("TravePlannerApp")
+angular.module("TravePlannerApp.contorller.signupController",[])
 .controller("signupController", ['$state', '$scope', '$http', ($state, $scope, $http)->
   $scope.data = {}
   $scope.isValid = ->

@@ -1,5 +1,5 @@
 (function() {
-  angular.module("TravePlannerApp").controller("loginController", [
+  angular.module("TravePlannerApp.contorller.loginController", []).controller("loginController", [
     '$scope', '$http', '$state', 'UserProfileService', function($scope, $http, $state, UserProfileService) {
       $scope.title = "User Login";
       return $scope.login = function() {

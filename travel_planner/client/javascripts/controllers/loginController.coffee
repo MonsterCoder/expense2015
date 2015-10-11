@@ -1,4 +1,4 @@
-angular.module("TravePlannerApp")
+angular.module("TravePlannerApp.contorller.loginController",[])
 .controller("loginController",['$scope', '$http', '$state', 'UserProfileService', ($scope, $http, $state, UserProfileService) ->
   $scope.title ="User Login"
 

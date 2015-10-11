@@ -1,4 +1,4 @@
-angular.module("TravePlannerApp.interceptor.tokenHttpInterceptor", ['TravePlannerApp.service.serProfileService'])
+angular.module("TravePlannerApp.interceptor", ['TravePlannerApp.service.UserProfileService'])
 .factory('tokenHttpInterceptor', ['UserProfileService', (UserProfileService) ->
         request: (config) ->
             if UserProfileService.isLoggedIn()

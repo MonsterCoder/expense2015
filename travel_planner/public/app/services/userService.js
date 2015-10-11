@@ -1,5 +1,5 @@
 (function() {
-  angular.module('TravePlannerApp.service.serProfileService', ['angular-storage']).factory('UserProfileService', function($rootScope, aiStorage) {
+  angular.module('TravePlannerApp.service.UserProfileService', ['angular-storage']).factory('UserProfileService', function($rootScope, aiStorage) {
     var _token;
     _token = null;
     return {

@@ -4,6 +4,7 @@ src_files:
   - public/components/angular-ui-router/release/angular-ui-router.js
   - public/components/angular-storage/dist/angular-storage.min.js
   - public/components/angular-resource/angular-resource.min.js
+  - public/components/moment/min/moment.min.js
   - public/app/**/*.js
 stylesheets:
   - assets/application.css

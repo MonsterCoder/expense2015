@@ -1,5 +1,5 @@
 (function() {
-  angular.module("TravePlannerApp", ['ui.router', 'TravePlannerApp.service.serProfileService', 'TravePlannerApp.service.tripsService', 'TravePlannerApp.interceptor.tokenHttpInterceptor']).config([
+  angular.module("TravePlannerApp", ['ui.router', 'TravePlannerApp.interceptor', 'TravePlannerApp.service.UserProfileService', 'TravePlannerApp.service.tripsService', 'TravePlannerApp.contorllers']).config([
     '$urlRouterProvider', '$stateProvider', '$httpProvider', function($urlRouterProvider, $stateProvider, $httpProvider) {
       $urlRouterProvider.otherwise("/welcome");
       $stateProvider.state('welcome', {

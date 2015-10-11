@@ -1,4 +1,4 @@
-angular.module('TravePlannerApp.service.serProfileService', ['angular-storage'])
+angular.module('TravePlannerApp.service.UserProfileService', ['angular-storage'])
 .factory('UserProfileService', ($rootScope, aiStorage) ->
     _token = null
     setToken: (token) ->

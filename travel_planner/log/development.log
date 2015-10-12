@@ -730,3 +730,26 @@ Processing by AuthController#create as HTML
 Can't verify CSRF token authenticity
   [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT 1  [["username", "gchen"]]
 Completed 200 OK in 190ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/auth" for 127.0.0.1 at 2015-10-11 23:56:14 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AuthController#create as HTML
+  Parameters: {"username"=>"gchen", "password"=>"[FILTERED]", "auth"=>{"username"=>"gchen", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT 1  [["username", "gchen"]]
+Completed 200 OK in 140ms (Views: 0.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/trips" for 127.0.0.1 at 2015-10-12 00:05:03 -0500
+Processing by TripsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mTrip Load (0.5ms)[0m  SELECT "trips".* FROM "trips"
+Completed 200 OK in 23ms (Views: 1.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/trips" for 127.0.0.1 at 2015-10-12 00:09:15 -0500
+Processing by TripsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mTrip Load (0.2ms)[0m  SELECT "trips".* FROM "trips"
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.3ms)

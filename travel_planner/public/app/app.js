@@ -18,6 +18,13 @@
         templateUrl: 'app/views/trips.html',
         data: {
           login: true
+        },
+        resolve: {
+          trips: [
+            'tripsService', function(tripsService) {
+              return tripsService.get().$promise;
+            }
+          ]
         }
       });
       return $httpProvider.interceptors.push('tokenHttpInterceptor');

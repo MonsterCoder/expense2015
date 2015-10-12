@@ -22,6 +22,11 @@
       templateUrl: 'app/views/trips.html'
       data:
         login: true
+      resolve: 
+        trips: [ 'tripsService', (tripsService) ->
+          tripsService.get().$promise
+        ]
+          
     )
     
     $httpProvider.interceptors.push('tokenHttpInterceptor')

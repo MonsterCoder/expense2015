@@ -9,7 +9,7 @@ class TripsController < ApplicationController
     trip = @current_user.trips.create!(trip_params)
   
     if trip
-      render json: {message: "trip created", trip: trip }
+      render json: {message: "trip created", trip_id: trip.id }
     else
       render json: {}, status: :badrequest
     end

@@ -22,7 +22,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'therubyracer'
   gem 'guard-coffeescript'
-  gem 'jasmine-rails'
+  gem 'jasmine', '2.2.0'
   gem 'guard-jasmine'
 end
 

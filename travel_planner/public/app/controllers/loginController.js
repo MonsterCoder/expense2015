@@ -8,7 +8,7 @@
           password: $scope.password
         }).then(function(result) {
           UserProfileService.setToken(result.data.token);
-          return $state.go("trips");
+          return $state.go("trips.list");
         })["catch"](function(err) {
           return $scope.errors = [err.data.message];
         });

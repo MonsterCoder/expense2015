@@ -1,6 +1,7 @@
 (function() {
   angular.module("TravePlannerApp", ['ui.router', 'TravePlannerApp.interceptor', 'TravePlannerApp.service.UserProfileService', 'TravePlannerApp.service.tripsService', 'TravePlannerApp.contorllers']).config([
     '$urlRouterProvider', '$stateProvider', '$httpProvider', function($urlRouterProvider, $stateProvider, $httpProvider) {
+      $urlRouterProvider.when("/trips", "/trips/list");
       $urlRouterProvider.otherwise("/welcome");
       $stateProvider.state('welcome', {
         url: '/welcome',
@@ -28,9 +29,16 @@
         }
       }).state('trips.list', {
         url: '/',
-        templateUrl: 'app/views/trips/list.html'
+        templateUrl: 'app/views/trips/list.html',
+        data: {
+          login: true
+        },
+        controller: 'tripsController'
       }).state('trips.new_trip', {
         url: '/new',
+        data: {
+          login: true
+        },
         templateUrl: 'app/views/trips/new_trip.html'
       });
       return $httpProvider.interceptors.push('tokenHttpInterceptor');

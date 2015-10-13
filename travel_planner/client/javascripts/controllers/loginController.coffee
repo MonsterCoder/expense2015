@@ -7,7 +7,7 @@ angular.module("TravePlannerApp.contorller.loginController",[])
     .post('/auth', {username: $scope.username, password: $scope.password})
     .then (result) ->
       UserProfileService.setToken result.data.token
-      $state.go("trips")
+      $state.go("trips.list")
     .catch (err) ->
       $scope.errors = [err.data.message]
 ])

@@ -13,6 +13,7 @@ describe "loginController", ->
       $templateCache.put "app/views/welcome.html", ""
       $templateCache.put "app/views/trips/trips.html", ""
       $templateCache.put "app/views/trips/new_trip.html", ""
+      $templateCache.put "app/views/trips/list.html", ""
       $state = _$state_
       $scope = _$rootScope_.$new()
       $scope.username = "user1"
@@ -52,5 +53,5 @@ describe "loginController", ->
       expect(userService.token()).toEqual("abcdefg123456")
       
     it " goes to trips state", ->
-      expect($state.current.name).toEqual("trips")
+      expect($state.current.name).toEqual("trips.list")
     

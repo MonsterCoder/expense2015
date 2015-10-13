@@ -13,8 +13,8 @@ describe "tripsController", ->
     tripsService = _tripsService_
     $httpBackend = _$httpBackend_
     trips = [
-      new tripsService { id: 1, destination: 'city1', startDate: "Sun Oct 11 2015 14:16:02 GMT-0500 (CDT)", endDate: "Sun Oct 12 2015 14:16:02 GMT-0500 (CDT)", comment: 'comment 1'},
-      new tripsService { id: 2, destination: 'city2', startDate: "Sun Oct 13 2015 14:16:02 GMT-0500 (CDT)", endDate: "Sun Oct 14 2015 14:16:02 GMT-0500 (CDT)", comment: 'comment 2'},
+      { id: 1, destination: 'city1', startDate: "Sun Oct 11 2015 14:16:02 GMT-0500 (CDT)", endDate: "Sun Oct 12 2015 14:16:02 GMT-0500 (CDT)", comment: 'comment 1'},
+      { id: 2, destination: 'city2', startDate: "Sun Oct 13 2015 14:16:02 GMT-0500 (CDT)", endDate: "Sun Oct 14 2015 14:16:02 GMT-0500 (CDT)", comment: 'comment 2'}
     ]
     _$controller_("tripsController", {$scope: $scope, trips: {trips: trips}})
     
@@ -41,15 +41,5 @@ describe "tripsController", ->
     $scope.edit_trip = {  destination: 'city3', startDate: "Sun Oct 15 2015 14:16:02 GMT-0500 (CDT)", endDate: "Sun Oct 15 2015 14:16:02 GMT-0500 (CDT)", comment: 'comment 3'}
     $scope.add()
     expect($scope.edit_trip).toEqual({})
-    
-  xit " edits a trip to edit", ->
-    count = $scope.trips.length
-    $httpBackend.whenPUT('/trips/1').respond(200, {message: "trip updated"})
-    $scope.edit(0)
-    $scope.edit_trip.destination = 'abcedefe'
-    $scope.save()
-    $httpBackend.flush()
-    expect($scope.trips.length).toEqual(count)
-    expect($scope.trips[0].destination).toEqual('abcedefe')
     
      

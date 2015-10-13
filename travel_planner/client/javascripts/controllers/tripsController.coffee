@@ -3,7 +3,8 @@ angular.module("TravePlannerApp.contorller.tripsController", ['720kb.datepicker'
   $scope.trips = data.trips
   
   $scope.delete = (idx) ->
-    t = $scope.trips[idx]
+    t = new tripsService($scope.trips[idx])
+    console.log t
     t.$delete()
     .then () ->
       $scope.trips.splice(idx, 1)
@@ -13,7 +14,7 @@ angular.module("TravePlannerApp.contorller.tripsController", ['720kb.datepicker'
     
   $scope.edit = (idx) ->
     t = $scope.trips[idx]
-    $scope.edit_trip = {
+    $scope.edit_trip = 
       id: t.id
       destination: t.destination
       startDate: t.startDate

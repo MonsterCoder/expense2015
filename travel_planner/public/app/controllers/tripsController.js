@@ -4,7 +4,8 @@
       $scope.trips = data.trips;
       $scope["delete"] = function(idx) {
         var t;
-        t = $scope.trips[idx];
+        t = new tripsService($scope.trips[idx]);
+        console.log(t);
         return t.$delete().then(function() {
           return $scope.trips.splice(idx, 1);
         });
@@ -12,7 +13,7 @@
       $scope.add = function() {
         return $scope.edit_trip = {};
       };
-      $scope.edit = function(idx) {
+      return $scope.edit = function(idx) {
         var t;
         t = $scope.trips[idx];
         return $scope.edit_trip = {
@@ -23,10 +24,6 @@
           comment: t.comment,
           idx: idx
         };
-      };
-      return $scope.output = function(item) {
-        window.item = item;
-        return console.log(item);
       };
     }
   ]);

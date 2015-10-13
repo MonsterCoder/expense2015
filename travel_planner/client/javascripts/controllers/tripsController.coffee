@@ -1,5 +1,5 @@
 angular.module("TravePlannerApp.contorller.tripsController", ['720kb.datepicker'])
-.controller("tripsController", ['$scope', 'trips', 'tripsService', ($scope, data, tripsService) ->
+.controller("tripsController", ['$scope', 'trips', '$state', 'tripsService', ($scope, data, $state, tripsService) ->
   $scope.trips = data.trips
   
   $scope.delete = (idx) ->
@@ -13,14 +13,7 @@ angular.module("TravePlannerApp.contorller.tripsController", ['720kb.datepicker'
     $scope.edit_trip = {}
     
   $scope.edit = (idx) ->
-    t = $scope.trips[idx]
-    $scope.edit_trip = 
-      id: t.id
-      destination: t.destination
-      startDate: t.startDate
-      endDate: t.endDate
-      comment: t.comment
-      idx:  idx
+    $state.go("trips.edit_trip", {idx : idx})
 ])    
 
 

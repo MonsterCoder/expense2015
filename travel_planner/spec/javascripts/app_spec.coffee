@@ -17,16 +17,14 @@ describe "travel planner app",  ->
     it " checks login restriction when swiching to trips state",  ->
           $rootScope.$apply(() ->
               $state.go("trips"))
-              
           expect($state.current.name).toEqual("login")
           
     it " checks login restriction when swiching to trips.list state",  ->
           $rootScope.$apply(() ->
               $state.go("trips.list"))
-    
           expect($state.current.name).toEqual("login")
+          
     it " checks login restriction when swiching to trips.new_trip state",  ->
           $rootScope.$apply(() ->
               $state.go("trips.new_trip"))
-  
           expect($state.current.name).toEqual("login")

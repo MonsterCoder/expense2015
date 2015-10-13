@@ -3,10 +3,11 @@ describe "travel planner app",  ->
     $rootScope = {}
     beforeEach module "TravePlannerApp"
     
-    beforeEach inject (_$state_, _$rootScope_, $templateCache, $httpBackend) ->
+    beforeEach inject (_$state_, _$rootScope_, $templateCache, $httpBackend, UserProfileService) ->
         $templateCache.put "app/views/welcome.html", ""
         $templateCache.put "app/views/trips/trips.html", ""
         $templateCache.put "app/views/login.html", ""
+        UserProfileService.logout()
         $state = _$state_
         $rootScope = _$rootScope_
         $httpBackend.expectGET('/trips').respond(200)

@@ -1,5 +1,5 @@
 (function() {
-  angular.module("TravePlannerApp.contorller.tripsController", []).controller("tripsController", [
+  angular.module("TravePlannerApp.contorller.tripsController", ['720kb.datepicker']).controller("tripsController", [
     '$scope', 'trips', 'tripsService', function($scope, trips, tripsService) {
       $scope.trips = trips;
       $scope["delete"] = function(idx) {

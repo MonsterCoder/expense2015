@@ -2,6 +2,11 @@ html, body {
     height: 100%;
 }
 
-input.ng-invalid-required, input.ng-invalid-pattern {
-    border-color: red
+._720kb-datepicker-calendar-body, ._720kb-datepicker-calendar-days-header, ._720kb-datepicker-calendar-header, ._720kb-datepicker-calendar-years-pagination-pages, .datepicker, [datepicker], datepicker {
+    position: static;
+
+}
+
+._720kb-datepicker-calendar._720kb-datepicker-open {
+    width: 220px;
 }

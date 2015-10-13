@@ -1,4 +1,4 @@
- angular.module("TravePlannerApp", ['ui.router','TravePlannerApp.interceptor', 'TravePlannerApp.service.UserProfileService', 'TravePlannerApp.service.tripsService','TravePlannerApp.contorllers'])
+ angular.module("TravePlannerApp", ['ui.router','720kb.datepicker','TravePlannerApp.interceptor', 'TravePlannerApp.service.UserProfileService', 'TravePlannerApp.service.tripsService','TravePlannerApp.contorllers'])
  .config(['$urlRouterProvider','$stateProvider','$httpProvider', ($urlRouterProvider, $stateProvider, $httpProvider) ->
     $urlRouterProvider.when("/trips", "/trips/list")
     $urlRouterProvider.otherwise("/welcome")

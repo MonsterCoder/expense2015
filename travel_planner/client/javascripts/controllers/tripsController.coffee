@@ -1,4 +1,4 @@
-angular.module("TravePlannerApp.contorller.tripsController", [])
+angular.module("TravePlannerApp.contorller.tripsController", ['720kb.datepicker'])
 .controller("tripsController", ['$scope', 'trips', 'tripsService', ($scope, trips, tripsService) ->
   $scope.trips = trips
   

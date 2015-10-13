@@ -1,6 +1,10 @@
 <h3>Trip editor</h3>
-<input ng-model="destination" ng-required ='true'></input> </br>
-<input ng-model="startDate" ng-required ='true'></input> </br>
-<input ng-model="endDate" ng-required ='true'></input> </br>
-<textarea ng-model="comment"></textarea> </br>
+<input ng-model="edit_trip.destination" ng-required ='true'></input> </br>
+<datepicker date-format="yyyy-MM-dd">
+  <input ng-model="edit_trip.startDate" ></input> 
+</datepicker>
+<datepicker date-format="yyyy-MM-dd">
+  <input ng-model="edit_trip.endDate" ></input>
+</datepicker>
+<textarea ng-model="edit_trip.comment"></textarea> </br>
 <button ng-click="save()">Save</button>

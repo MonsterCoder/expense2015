@@ -40,6 +40,14 @@
       data:
         login: true
       templateUrl: 'app/views/trips/new_trip.html'
+      controller: 'newTripController'
+    )
+    .state('trips.edit_trip',
+      url : '/edit/:idx'
+      data:
+        login: true
+      templateUrl: 'app/views/trips/new_trip.html'
+      controller: 'editTripController'
     )
     
     $httpProvider.interceptors.push('tokenHttpInterceptor')

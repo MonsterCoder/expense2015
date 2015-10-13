@@ -1,8 +1,8 @@
 (function() {
   angular.module("TravePlannerApp.contorller.tripsController").controller("editTripController", [
-    '$scope', 'trips', 'tripsService', '$stateParams', '$state', function($scope, trips, tripsService, $stateParams, $state) {
+    '$scope', 'trips', 'tripsService', '$stateParams', '$state', function($scope, data, tripsService, $stateParams, $state) {
       var idx, t;
-      $scope.trips = trips;
+      $scope.trips = data.trips;
       idx = $stateParams.idx;
       t = $scope.trips[idx];
       $scope.edit_trip = {
@@ -20,7 +20,7 @@
           t.startDate = $scope.edit_trip.startDate;
           t.endDate = $scope.edit_trip.endDate;
           t.comment = $scope.edit_trip.comment;
-          return $state.go('trips');
+          return $state.go('trips.list');
         });
       };
     }

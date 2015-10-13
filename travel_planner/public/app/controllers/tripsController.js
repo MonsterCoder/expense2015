@@ -1,7 +1,7 @@
 (function() {
   angular.module("TravePlannerApp.contorller.tripsController", ['720kb.datepicker']).controller("tripsController", [
-    '$scope', 'trips', 'tripsService', function($scope, trips, tripsService) {
-      $scope.trips = trips;
+    '$scope', 'trips', 'tripsService', function($scope, data, tripsService) {
+      $scope.trips = data.trips;
       $scope["delete"] = function(idx) {
         var t;
         t = $scope.trips[idx];
@@ -24,26 +24,9 @@
           idx: idx
         };
       };
-      return $scope.save = function() {
-        var a, t;
-        t = new tripsService($scope.edit_trip);
-        a = $scope.trips[$scope.edit_trip.idx];
-        if (t.id) {
-          return t.$update().then(function() {
-            a.destination = $scope.edit_trip.destination;
-            a.startDate = $scope.edit_trip.startDate;
-            a.endDate = $scope.edit_trip.endDate;
-            return a.comment = $scope.edit_trip.comment;
-          });
-        } else {
-          return t.$save().then(function(result) {
-            t.id = result.trip_id;
-            return $scope.trips.push(t);
-          })["catch"](function(err) {
-            console.log("!!!!");
-            return console.log(err);
-          });
-        }
+      return $scope.output = function(item) {
+        window.item = item;
+        return console.log(item);
       };
     }
   ]);

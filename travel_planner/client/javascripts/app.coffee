@@ -25,7 +25,7 @@
         login: true
       resolve: 
         trips: [ 'tripsService', (tripsService) ->
-          tripsService.get().$promise
+          tripsService.query().$promise
         ]   
     )
     .state('trips.list',

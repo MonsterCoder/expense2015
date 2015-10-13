@@ -24,14 +24,14 @@ describe "trips" do
     
     it " creates a trip " do
       t = FactoryGirl.build(:trip, user: @user1)
-      expect{post trips_path, {data: t}.to_json, headers}.to change(Trip, :count).by 1
+      expect{post trips_path, t.to_json, headers}.to change(Trip, :count).by 1
       expect(response.status).to equal 200 
       
     end
     
     it " updates a trip " do
       t = FactoryGirl.create(:trip, user: @user1)
-      put trip_path(t), {data: { destination: 'abc'}}.to_json, headers
+      put trip_path(t), { destination: 'abc'}.to_json, headers
       expect(response.status).to equal 200 
       t.reload
       expect(t.destination).to eq 'abc'

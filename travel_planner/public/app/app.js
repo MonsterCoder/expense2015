@@ -15,7 +15,7 @@
         controller: 'signupController'
       }).state('trips', {
         url: '/trips',
-        templateUrl: 'app/views/trips.html',
+        templateUrl: 'app/views/trips/trips.html',
         data: {
           login: true
         },
@@ -26,6 +26,12 @@
             }
           ]
         }
+      }).state('trips.list', {
+        url: '/',
+        templateUrl: 'app/views/trips/list.html'
+      }).state('trips.new_trip', {
+        url: '/new',
+        templateUrl: 'app/views/trips/new_trip.html'
       });
       return $httpProvider.interceptors.push('tokenHttpInterceptor');
     }

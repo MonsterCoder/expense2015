@@ -5,7 +5,7 @@ describe "travel planner app",  ->
     
     beforeEach inject (_$state_, _$rootScope_, $templateCache) ->
         $templateCache.put "app/views/welcome.html", ""
-        $templateCache.put "app/views/trips.html", ""
+        $templateCache.put "app/views/trips/trips.html", ""
         $templateCache.put "app/views/login.html", ""
         $state = _$state_
         $rootScope = _$rootScope_

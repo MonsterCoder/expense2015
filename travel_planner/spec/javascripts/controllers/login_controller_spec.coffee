@@ -11,7 +11,8 @@ describe "loginController", ->
       $templateCache.put "app/views/login.html", ""
       $templateCache.put "app/views/signup.html", ""
       $templateCache.put "app/views/welcome.html", ""
-      $templateCache.put "app/views/trips.html", ""
+      $templateCache.put "app/views/trips/trips.html", ""
+      $templateCache.put "app/views/trips/new_trip.html", ""
       $state = _$state_
       $scope = _$rootScope_.$new()
       $scope.username = "user1"
@@ -42,6 +43,7 @@ describe "loginController", ->
   describe ' login succeed ', ->
     beforeEach () ->
       $httpBackend.expectPOST('/auth', {username: 'user1', password: '123'}).respond(200, {token: "abcdefg123456"})
+      $httpBackend.expectGET('/trips').respond(200)
       $scope.login()
       $httpBackend.flush()
       $rootScope.$apply()

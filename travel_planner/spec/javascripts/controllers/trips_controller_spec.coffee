@@ -9,7 +9,7 @@ describe "tripsController", ->
     $templateCache.put "app/views/login.html", ""
     $templateCache.put "app/views/signup.html", ""
     $templateCache.put "app/views/welcome.html", ""
-    $templateCache.put "app/views/trips.html", ""
+    $templateCache.put "app/views/trips/trips.html", ""
     tripsService = _tripsService_
     $httpBackend = _$httpBackend_
     trips = [

@@ -1,7 +1,6 @@
  angular.module("TravePlannerApp", ['ui.router','TravePlannerApp.interceptor', 'TravePlannerApp.service.UserProfileService', 'TravePlannerApp.service.tripsService','TravePlannerApp.contorllers'])
  .config(['$urlRouterProvider','$stateProvider','$httpProvider', ($urlRouterProvider, $stateProvider, $httpProvider) ->
     $urlRouterProvider.otherwise("/welcome")
-    
     $stateProvider
     .state('welcome',
       url : '/welcome',
@@ -19,14 +18,21 @@
     )
     .state('trips', 
       url : '/trips'
-      templateUrl: 'app/views/trips.html'
+      templateUrl: 'app/views/trips/trips.html'
       data:
         login: true
       resolve: 
         trips: [ 'tripsService', (tripsService) ->
           tripsService.get().$promise
-        ]
-          
+        ]   
+    )
+    .state('trips.list',
+      url : '/'
+      templateUrl: 'app/views/trips/list.html'
+    )
+    .state('trips.new_trip',
+      url : '/new'
+      templateUrl: 'app/views/trips/new_trip.html'
     )
     
     $httpProvider.interceptors.push('tokenHttpInterceptor')

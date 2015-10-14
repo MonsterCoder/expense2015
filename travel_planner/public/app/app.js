@@ -1,6 +1,6 @@
 (function() {
-  angular.module("TravePlannerApp", ['ui.router', '720kb.datepicker', 'TravePlannerApp.interceptor', 'TravePlannerApp.service.UserProfileService', 'TravePlannerApp.service.tripsService', 'TravePlannerApp.contorllers']).config([
-    '$urlRouterProvider', '$stateProvider', '$httpProvider', function($urlRouterProvider, $stateProvider, $httpProvider) {
+  angular.module("TravePlannerApp", ['ui.router', '720kb.datepicker', 'TravePlannerApp.interceptor', 'TravePlannerApp.service.UserProfileService', 'TravePlannerApp.service.tripsService', 'TravePlannerApp.contorllers', 'ngMaterial']).config([
+    '$urlRouterProvider', '$stateProvider', '$httpProvider', '$mdThemingProvider', function($urlRouterProvider, $stateProvider, $httpProvider, $mdThemingProvider) {
       $urlRouterProvider.when("/trips", "/trips/list");
       $urlRouterProvider.otherwise("/welcome");
       $stateProvider.state('welcome', {
@@ -49,7 +49,8 @@
         templateUrl: 'app/views/trips/new_trip.html',
         controller: 'editTripController'
       });
-      return $httpProvider.interceptors.push('tokenHttpInterceptor');
+      $httpProvider.interceptors.push('tokenHttpInterceptor');
+      return $mdThemingProvider.theme('default').primaryPalette('pink').accentPalette('orange');
     }
   ]).run([
     '$rootScope', '$state', 'UserProfileService', function($rootScope, $state, UserProfileService) {
@@ -59,6 +60,13 @@
           return $state.go('login');
         }
       });
+      $rootScope.UserProfileService = UserProfileService;
+      $rootScope.title = UserProfileService.isLoggedIn();
+      $rootScope.state = $state;
+      $rootScope.logout = function() {
+        UserProfileService.logout();
+        return $state.go("welcome");
+      };
       return true;
     }
   ]);

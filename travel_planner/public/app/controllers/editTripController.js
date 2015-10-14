@@ -5,7 +5,6 @@
       $scope.trips = data.trips;
       idx = $stateParams.idx;
       t = $scope.trips[idx];
-
       $scope.edit_trip = {
         id: t.id,
         destination: t.destination,

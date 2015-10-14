@@ -1,7 +1,8 @@
 (function() {
   angular.module("TravePlannerApp.contorller.tripsController", ['720kb.datepicker']).controller("tripsController", [
     '$scope', 'trips', '$state', 'tripsService', function($scope, data, $state, tripsService) {
-      $scope.trips = data.trips;
+      $scope.trips = tripsService.buildFromArray(data.trips);
+      console.log($scope.trips);
       $scope["delete"] = function(idx) {
         var t;
         t = new tripsService($scope.trips[idx]);

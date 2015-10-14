@@ -1,7 +1,10 @@
 html, body {
     height: 100%;
 }
-
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    line-height: 1.1;
+    text-rendering: optimizelegibility;
+}
 ._720kb-datepicker-calendar-body, ._720kb-datepicker-calendar-days-header, ._720kb-datepicker-calendar-header, ._720kb-datepicker-calendar-years-pagination-pages, .datepicker, [datepicker], datepicker {
     position: static;
 
@@ -9,4 +12,68 @@ html, body {
 
 ._720kb-datepicker-calendar._720kb-datepicker-open {
     width: 220px;
+}
+
+video#pretzel-video { 
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    background-size: cover; 
+}
+
+.page-content {
+    top: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    color: white;
+}
+md-toolbar.header-fixed {
+    position: fixed;
+}
+.space-1 {
+    margin-bottom: 6.25px;
+}
+
+.space-4 {
+    margin-bottom: 25px;
+}
+
+.text-contrast {
+    color: #fff;
+}
+
+.text-branding {
+    text-transform: uppercase;
+}
+
+.text-jumbo {
+    font-size: 60px;
+    font-weight: 700;
+}
+
+.weight {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.borderd-button {
+    border: solid 2px white;
+    padding : 5px 35px;
+}
+
+.card-middle {
+    min-width: 420px;
+    padding:10px;
+}
+
+.page {
+    height: 100%;
+    background-color: rgba(8,8,8,0.5);
+}
+
+.error {
+    color: red;
 }

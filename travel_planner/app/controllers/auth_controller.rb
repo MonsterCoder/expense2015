@@ -7,7 +7,7 @@ class AuthController < ApplicationController
     if u && u.authenticate(password)
       render json: {token: u.getToken }
     else
-      render json: {message: "username password not match"}, status: :unauthorized
+      render json: {message: "username password doesn't match."}, status: :unauthorized
     end
   end
   

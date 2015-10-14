@@ -44,25 +44,25 @@
     }
     </style>
   </head>
-  <body ng-app="TravePlannerApp">
+  <body  ng-app="TravePlannerApp">
     <md-content>
-        <md-toolbar >
+        <md-toolbar class="header-fixed" >
           <div class="md-toolbar-tools">
-            <h2>
+            <h2 >
               <span>Travel Planner </span>
             </h2>
             <span flex></span>
             <div >
-                <a class="" ng-hide="UserProfileService.isLoggedIn() || (state.current.name =='login')" ui-sref="login" href="">login</a>
-                <a class="" ng-show="UserProfileService.isLoggedIn() " ng-click="logout() " href="">logout </a>
-                <a class="" ui-sref="signup" ng-hide="UserProfileService.isLoggedIn()">signup</a>
+                <md-button class="" ng-hide="UserProfileService.isLoggedIn() || (state.current.name =='login')" ui-sref="login" href="">Log in</md-button>
+                <md-button class="" ng-show="UserProfileService.isLoggedIn() " ng-click="logout() " href="">Logout </md-button>
+                <md-button class="" ui-sref="signup" ng-hide="UserProfileService.isLoggedIn()">Sign Up</md-button>
             </div >
           </div>
 
         </md-toolbar>
   
-        <main class=""  autoscroll="false">
-          <div class="page-content" ui-view></div>
+        <main >
+          <div  autoscroll='false' ui-view></div>
         </main>
     </md-content>
 

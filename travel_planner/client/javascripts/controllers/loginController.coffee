@@ -1,7 +1,7 @@
 angular.module("TravePlannerApp.contorller.loginController",[])
-.controller("loginController",['$scope', '$http', '$state', 'UserProfileService', ($scope, $http, $state, UserProfileService) ->
+.controller("loginController",['$scope', '$http', '$state', 'UserProfileService','$stateParams', ($scope, $http, $state, UserProfileService, $stateParams) ->
   $scope.title ="User Login"
-
+  $scope.message = $stateParams.message 
   $scope.login = ->
     $http
     .post('/auth', {username: $scope.username, password: $scope.password})

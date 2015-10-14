@@ -74,7 +74,9 @@ md-toolbar.header-fixed {
     height: 100%;
     background-color: rgba(8,8,8,0.5);
 }
-
+.message {
+    color: green;
+}
 .error {
     color: red;
 }

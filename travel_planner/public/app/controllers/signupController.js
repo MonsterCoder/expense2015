@@ -9,7 +9,9 @@
         $http.post('/users', {
           user: $scope.data
         }).then(function(result) {
-          return $state.go("login");
+          return $state.go("login", {
+            message: "Your account has been created successfully!"
+          });
         })["catch"](function(err) {
           return $scope.errors = [err.data.message];
         });

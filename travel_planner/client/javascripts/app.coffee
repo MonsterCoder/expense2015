@@ -9,7 +9,7 @@
       templateUrl : 'app/views/welcome.html'
     )
     .state('login',
-      url : '/login',
+      url : '/login?message',
       templateUrl : 'app/views/login.html'
       controller : 'loginController'
     )

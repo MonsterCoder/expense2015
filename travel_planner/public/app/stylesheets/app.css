@@ -32,7 +32,10 @@ video#pretzel-video {
 }
 md-toolbar.header-fixed {
     position: fixed;
-    background-color: rgba(225,225,225, 0.1);
+
+}
+md-toolbar.background-transparent {
+        background-color: rgba(225,225,225, 0.1);
 }
 .space-1 {
     margin-bottom: 6.25px;
@@ -72,6 +75,14 @@ md-toolbar.header-fixed {
 
 .page {
     height: 100%;
+}
+.with-header {
+    padding-top: 70px;
+}
+.background-gray {
+    background-color: rgba(215,215,215,0.5);
+}
+.background-dark {
     background-color: rgba(8,8,8,0.5);
 }
 .message {

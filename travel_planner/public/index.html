@@ -46,7 +46,7 @@
   </head>
   <body  ng-app="TravePlannerApp">
     <md-content>
-        <md-toolbar class="header-fixed" >
+        <md-toolbar class="header-fixed" ng-class="{'background-transparent': state.current.name =='welcome' || state.current.name =='login' || state.current.name =='signup'}" >
           <div class="md-toolbar-tools">
             <h2 >
               <span>Travel Planner </span>

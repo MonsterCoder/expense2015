@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   rescue_from ActionController::ParameterMissing, with: :return_errors
   
   def return_errors(exception)
-    render json: {message: exception.message}, status: 400
+    message = exception.message.sub('Validation failed: ','')
+    
+    render json: {message: message}, status: 400
   end
 end

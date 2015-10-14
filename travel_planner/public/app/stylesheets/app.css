@@ -32,6 +32,7 @@ video#pretzel-video {
 }
 md-toolbar.header-fixed {
     position: fixed;
+    background-color: rgba(225,225,225, 0.1);
 }
 .space-1 {
     margin-bottom: 6.25px;

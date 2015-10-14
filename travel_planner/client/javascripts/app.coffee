@@ -51,10 +51,7 @@
     )
     
     $httpProvider.interceptors.push('tokenHttpInterceptor')
-    
-    $mdThemingProvider.theme('default')
-      .primaryPalette('pink')
-      .accentPalette('orange')
+
  ])
  .run(['$rootScope', '$state','UserProfileService', ($rootScope, $state, UserProfileService) ->
     $rootScope.$on('$stateChangeStart', (event, toState) ->

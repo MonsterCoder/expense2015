@@ -49,8 +49,7 @@
         templateUrl: 'app/views/trips/new_trip.html',
         controller: 'editTripController'
       });
-      $httpProvider.interceptors.push('tokenHttpInterceptor');
-      return $mdThemingProvider.theme('default').primaryPalette('pink').accentPalette('orange');
+      return $httpProvider.interceptors.push('tokenHttpInterceptor');
     }
   ]).run([
     '$rootScope', '$state', 'UserProfileService', function($rootScope, $state, UserProfileService) {

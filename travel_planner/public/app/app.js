@@ -23,7 +23,7 @@
         resolve: {
           trips: [
             'tripsService', function(tripsService) {
-              return tripsService.query().$promise;
+              return tripsService.get().$promise;
             }
           ]
         }

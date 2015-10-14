@@ -28,15 +28,6 @@ describe "tripsController", ->
     $httpBackend.flush()
     expect($scope.trips.length).toEqual(count - 1)
     
-  xit " save a  trip", ->
-    count = $scope.trips.length
-    $scope.edit_trip = {  destination: 'city3', startDate: "Sun Oct 15 2015 14:16:02 GMT-0500 (CDT)", endDate: "Sun Oct 15 2015 14:16:02 GMT-0500 (CDT)", comment: 'comment 3'}
-    $httpBackend.whenPOST('/trips').respond(200, {message: "trip created", trip_id: 9 })
-    $scope.save()
-    $httpBackend.flush()
-    expect($scope.trips.length).toEqual(count + 1)
-    expect($scope.trips[count].id).toEqual(9)
-    
   it " adds an empty trip", ->
     $scope.edit_trip = {  destination: 'city3', startDate: "Sun Oct 15 2015 14:16:02 GMT-0500 (CDT)", endDate: "Sun Oct 15 2015 14:16:02 GMT-0500 (CDT)", comment: 'comment 3'}
     $scope.add()

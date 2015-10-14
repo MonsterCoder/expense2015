@@ -5,7 +5,11 @@
   <div>{{item.startDate}}</div>
   <div>{{item.endDate}}</div>
   <div>{{item.comment}}</div>
-  <a ng-click="delete($index)" href="">Remove</a>
-  <a ng-click="edit($index)" href="">Edit</a>
+  <div ng-hide = "item.getDays() < 0"> Days: {{item.getDays()}}
+    <a ng-click="delete($index)" href="">Remove</a>
+    <a ng-click="edit($index)" href="">Edit</a>
+  
+  </div>
+  <br/>
 </div>
 <a ui-sref="trips.new_trip" href="">Add a trip</a>

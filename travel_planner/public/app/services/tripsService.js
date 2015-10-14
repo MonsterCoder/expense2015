@@ -5,7 +5,7 @@
       build = function(a) {
         if (!a.getDays) {
           a.getDays = function() {
-            return moment.duration(moment(this.endDate) - moment(this.startDate)).asDays();
+            return moment.duration(moment(this.startDate) - moment(Date())).asDays();
           };
         }
         return a;

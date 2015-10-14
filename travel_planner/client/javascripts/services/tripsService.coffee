@@ -3,11 +3,13 @@ angular.module('TravePlannerApp.service.tripsService', ['ngResource'])
   build = (a) ->
     unless a.getDays
       a.getDays = () ->
-        moment.duration(moment(@.endDate) - moment(@.startDate)).asDays()
+        moment.duration( moment(@.startDate) - moment(Date())).asDays()
     a
   s = $resource('/trips/:id', {id: '@id'},{'update': { method:'PUT' }})
   s.buildFromArray = (arr)->
-    [(rt.push build i for i in arr)]
+    rt = []
+    (rt.push build i for i in arr)
+    rt
   s
 
 ])

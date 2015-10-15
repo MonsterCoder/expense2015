@@ -4,6 +4,9 @@
   <md-button flex =5 class="md-button" ui-sref="trips.new_trip" href="">
      <ng-md-icon icon="add_circle_outline" style="fill: green" size="52"></ng-md-icon> 
   </md-button>
+  <md-button flex =5 class="md-button" ng-click="print.open()" href="">
+     <ng-md-icon icon="print" style="fill: green" size="52"></ng-md-icon> 
+  </md-button>
   <span flex></span>
 
   <div ng-show="filter_by == 'custom'" class ="filter-box" layout="flow">
@@ -29,11 +32,15 @@
   </md-select>
   
 </div>
-  <ul class="list-layout" >
+  <div class="print-only" layout="column" layout-align="center center">
+    <h2 > Your travel plan <small>( {{print.description}} )</small></h2>
+    
+  </div>
+  <ul class="list-layout printable" >
  
        <li class = "list-header" >
           
-          <div class = "" layout="column" flex=80>
+          <div class="trip-content" layout="column" flex=80>
             <div layout="row">
                <a flex =10 ng-click="order('getDays()')" >
                    <ng-md-icon icon="schedule" style="fill: darkblue" ></ng-md-icon> 
@@ -53,7 +60,7 @@
         </li>
        <li class = "list-item"  ng-repeat=" item in  trips | filter: filter_trips | orderBy:predicate:reverse" layout="row">
 
-         <div layout="column" flex=80>
+         <div class="trip-content" layout="column" flex=80>
            <div layout="row">
               <div flex =10>
                  <span ng-hide = "item.getDays() < 0" class="md-fab" >{{item.getDays() | number:0}}</span>
@@ -73,7 +80,7 @@
             <p class='comment'>{{item.comment}} </p>
            </div>
         </div>
-        <div flex=20>
+        <div class ="actions" flex=20>
               <md-button ng-click="delete($index)" class="menu-acition-button">
                 <ng-md-icon icon="remove_circle_outline" style="fill: red" ></ng-md-icon> 
               </md-button>

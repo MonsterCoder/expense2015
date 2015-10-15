@@ -161,3 +161,23 @@ md-input-container .lift-up {
 .push-down {
     padding-top: 21px;
 }
+.print-only {
+    display: none;
+}
+@media print {
+    .filter, .actions, md-toolbar
+    {    
+     display: none !important;
+    }
+    
+    .trip-content {
+        max-width: 100% !important;
+            width: 100% !important;
+            flex: 100 !important;
+    }
+    
+   .printable, .print-only
+    {
+     display: block !important;
+    }
+}

@@ -2,6 +2,11 @@ angular.module("TravePlannerApp.contorller.tripsController", ['720kb.datepicker'
 .controller("tripsController", ['$scope', 'trips', '$state', 'tripsService', '$mdDialog', ($scope, data, $state, tripsService, $mdDialog) ->
   $scope.trips = tripsService.buildFromArray data.trips
   ev = {}
+  
+  $scope.print ={}
+  $scope.print.open = () ->
+    window.print()
+    
   $scope.custom_filter = {}
   $scope.filter_by = "all"
   $scope.filters = [
@@ -16,23 +21,35 @@ angular.module("TravePlannerApp.contorller.tripsController", ['720kb.datepicker'
     switch $scope.filter_by 
       when "all" 
         true
+        $scope.print.description = 'all trips'
       when 'past' 
+        $scope.print.description = 'past trips'
         trip.getDays() < 0
       when 'future' 
+        $scope.print.description = 'future trips'
         trip.getDays() >= 0
       when '30days' 
+        $scope.print.description = 'trips in 30 days'
         trip.getDays() >= 0 and trip.getDays() <= 30
       when 'custom' 
+        rt = true
+        $scope.print.description = 'all trips'
         if $scope.custom_filter.destination
-          return false if trip.destination.indexOf($scope.custom_filter.destination) < 0
+          $scope.print.description = $scope.print.description+' to destination ' + $scope.custom_filter.destination
+          rt = false if trip.destination.indexOf($scope.custom_filter.destination) < 0
         if $scope.custom_filter.startDate
-          return false if trip.startDate < $scope.custom_filter.startDate
+          $scope.print.description = $scope.print.description+' from ' + new moment($scope.custom_filter.startDate).format('YYYY-MM-DD')
+          rt = false if trip.startDate < $scope.custom_filter.startDate
         if $scope.custom_filter.endDate
-          return false if trip.endDate > $scope.custom_filter.endDate     
+          $scope.print.description = $scope.print.description+' ends before ' + new moment($scope.custom_filter.endDate).format('YYYY-MM-DD')
+          rt = false if trip.endDate > $scope.custom_filter.endDate     
         
-        true
+        rt
       else
         false
+
+ 
+  
 
   $scope.predicate = 'getDays()';
   $scope.reverse = false;

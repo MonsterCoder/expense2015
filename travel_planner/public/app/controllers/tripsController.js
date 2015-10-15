@@ -4,6 +4,10 @@
       var ev;
       $scope.trips = tripsService.buildFromArray(data.trips);
       ev = {};
+      $scope.print = {};
+      $scope.print.open = function() {
+        return window.print();
+      };
       $scope.custom_filter = {};
       $scope.filter_by = "all";
       $scope.filters = [
@@ -25,32 +29,42 @@
         }
       ];
       $scope.filter_trips = function(trip) {
+        var rt;
         switch ($scope.filter_by) {
           case "all":
-            return true;
+            true;
+            return $scope.print.description = 'all trips';
           case 'past':
+            $scope.print.description = 'past trips';
             return trip.getDays() < 0;
           case 'future':
+            $scope.print.description = 'future trips';
             return trip.getDays() >= 0;
           case '30days':
+            $scope.print.description = 'trips in 30 days';
             return trip.getDays() >= 0 && trip.getDays() <= 30;
           case 'custom':
+            rt = true;
+            $scope.print.description = 'all trips';
             if ($scope.custom_filter.destination) {
+              $scope.print.description = $scope.print.description + ' to destination ' + $scope.custom_filter.destination;
               if (trip.destination.indexOf($scope.custom_filter.destination) < 0) {
-                return false;
+                rt = false;
               }
             }
             if ($scope.custom_filter.startDate) {
+              $scope.print.description = $scope.print.description + ' from ' + new moment($scope.custom_filter.startDate).format('YYYY-MM-DD');
               if (trip.startDate < $scope.custom_filter.startDate) {
-                return false;
+                rt = false;
               }
             }
             if ($scope.custom_filter.endDate) {
+              $scope.print.description = $scope.print.description + ' ends before ' + new moment($scope.custom_filter.endDate).format('YYYY-MM-DD');
               if (trip.endDate > $scope.custom_filter.endDate) {
-                return false;
+                rt = false;
               }
             }
-            return true;
+            return rt;
           default:
             return false;
         }

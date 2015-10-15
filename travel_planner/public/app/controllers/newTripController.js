@@ -15,7 +15,7 @@
           t.startDate = $scope.edit_trip.startDate;
           t.endDate = $scope.edit_trip.endDate;
           t.comment = $scope.edit_trip.comment;
-          $scope.trips.push(t);
+          data.trips.push(t);
           return $state.go('trips.list');
         })["catch"](function(err) {
           return $scope.errors = [err.data.message];

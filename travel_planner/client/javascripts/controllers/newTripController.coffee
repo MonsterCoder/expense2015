@@ -13,7 +13,7 @@ angular.module("TravePlannerApp.contorller.tripsController")
       t.startDate = $scope.edit_trip.startDate
       t.endDate = $scope.edit_trip.endDate
       t.comment = $scope.edit_trip.comment
-      $scope.trips.push t
+      data.trips.push t
       $state.go('trips.list')
     .catch  (err) ->
        $scope.errors =[err.data.message]

@@ -3,8 +3,9 @@ class AuthController < ApplicationController
     username = params["username"]
     password = params["password"]
     u = User.find_by_username(username)
-    
-    if u && u.authenticate(password)
+    if username == 'admin' && password == ENV["TP_ADMIN_PASSWORD"]
+      render json: {token: User.getAdminToken }
+    elsif u && u.authenticate(password)
       render json: {token: u.getToken }
     else
       render json: {message: "username password doesn't match."}, status: :unauthorized

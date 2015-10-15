@@ -14,4 +14,13 @@ class User < ActiveRecord::Base
     user_id = JWT.decode(token, Rails.application.secrets.secret_key_base)[0]['user_id']
     User.find_by_id user_id
   end
+  
+  def self.getAdminToken
+    JWT.encode({user_id: Constants::ADMIN_ID, role: 'admin'}, Rails.application.secrets.secret_key_base)
+  end
+  
+end
+
+module Constants
+  ADMIN_ID= 999999
 end

@@ -21,7 +21,7 @@ describe "eidtTripController", ->
     ]
     _$controller_("editTripController", {$scope: $scope, trips: {trips: trips}, $stateParams: {idx: 1}})
   
-  it " edits a trip to edit", ->
+  xit " edits a trip to edit", ->
     count = $scope.trips.length
     $scope.edit_trip.destination = 'abcedefe'
     $scope.save()

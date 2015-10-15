@@ -2,6 +2,13 @@ angular.module("TravePlannerApp.contorller.tripsController", ['720kb.datepicker'
 .controller("tripsController", ['$scope', 'trips', '$state', 'tripsService', '$mdDialog', ($scope, data, $state, tripsService, $mdDialog) ->
   $scope.trips = tripsService.buildFromArray data.trips
   ev = {}
+
+  $scope.predicate = 'getDays()';
+  $scope.reverse = false;
+  $scope.order = (predicate) ->
+    $scope.reverse = if ($scope.predicate == predicate) then !$scope.reverse  else  false
+    $scope.predicate = predicate;
+  
   $scope.delete = (idx) ->
     confirm = $mdDialog.confirm(ev)
           .title('Would you like to delete this trip?')

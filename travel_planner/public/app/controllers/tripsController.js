@@ -4,6 +4,12 @@
       var ev;
       $scope.trips = tripsService.buildFromArray(data.trips);
       ev = {};
+      $scope.predicate = 'getDays()';
+      $scope.reverse = false;
+      $scope.order = function(predicate) {
+        $scope.reverse = $scope.predicate === predicate ? !$scope.reverse : false;
+        return $scope.predicate = predicate;
+      };
       $scope["delete"] = function(idx) {
         var confirm;
         confirm = $mdDialog.confirm(ev).title('Would you like to delete this trip?').content('').ariaLabel('Delete trip').targetEvent(ev).ok('Confirm!').cancel('Cancel');

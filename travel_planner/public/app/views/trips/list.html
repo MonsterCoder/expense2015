@@ -11,23 +11,23 @@
           
           <div class = "" layout="column" flex=80>
             <div layout="row">
-               <div flex =5>
-                
-               </div>
-               <div flex =35>
+               <a flex =5 ng-click="order('getDays()')" >
+                   <ng-md-icon icon="schedule" style="fill: darkblue" ></ng-md-icon> 
+               </a>
+               <a flex =35 ng-click="order('destination')" >
                  Destination
-               </div>
-               <div flex ="15 ">
+               </a>
+               <a flex ="15 " ng-click="order('startDate')" >
                   Start Date
-               </div>
-               <div flex ="25 ">
+               </a>
+               <a flex ="25 " ng-click="order('endDate')" >
                   End Date
-               </div>
+               </a>
             </div >
  
           </div>
         </li>
-       <li class = "list-item"  ng-repeat=" item in  trips" layout="row">
+       <li class = "list-item"  ng-repeat=" item in  trips | orderBy:predicate:reverse" layout="row">
 
          <div layout="column" flex=80>
            <div layout="row">

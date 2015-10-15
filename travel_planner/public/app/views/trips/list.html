@@ -1,9 +1,11 @@
 
-<md-button class="md-button" ui-sref="trips.new_trip" href="">
-   <ng-md-icon icon="add_circle_outline" style="fill: green" size="52"></ng-md-icon> 
-</md-button>
-<div class="filter">
-<h2 class="" layout-align="end">All Trips ({{trips.length}})</h2>
+
+<div class="filter" layout="row">
+  <md-button flex =5 class="md-button" ui-sref="trips.new_trip" href="">
+     <ng-md-icon icon="add_circle_outline" style="fill: green" size="52"></ng-md-icon> 
+  </md-button>
+  <span flex></span>
+  <h2 class="" layout-align="end">All Trips ({{trips.length}})</h2>
 </div>
   <ul class="list-layout" >
  

@@ -19,17 +19,21 @@
         </md-input-container>
         <md-input-container>
           <label class="lift-up">End Date</label>
-          <datepicker date-format="yyyy-MM-dd"> <input ng-model="edit_trip.endDate" md-placeholder="End Date" ng-required='true'></input></datepicker>
+          <datepicker date-format="yyyy-MM-dd"> 
+            <input  ng-model="edit_trip.endDate" md-placeholder="End Date" ng-required='true'></input>
+          </datepicker>
         </md-input-container>
         <md-input-container flex="">
           <label>Comment</label>
           <textarea ng-model="edit_trip.comment" columns="1" md-maxlength="150"></textarea>
+           <small class ="error lift-up "ng-show="edit_trip.endDate < edit_trip.startDate" class='error'> Start date cannot be later than end date.</small>
         </md-input-container>
         <p ng-repeat  = "err in errors">
-          <small class='error'>{{err}}</small>
-        </p>
+          <small class='error'>{{err}}</small>       
+        </p>   
         <div class="md-actions" layout="row" layout-align="end center">
-          <md-button class="md-raised md-primary"  ng-click="save()" ng-disabled="!editTripForm.$valid">Login</md-button>
+          <md-button class="md-button"  ui-sref="trips.list" >Cancel</md-button>
+          <md-button class="md-raised md-primary"  ng-click="save()" ng-disabled="!editTripForm.$valid || (edit_trip.endDate < edit_trip.startDate)">Save</md-button>
           
         </div>
 

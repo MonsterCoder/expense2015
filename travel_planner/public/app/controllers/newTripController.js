@@ -3,6 +3,9 @@
     '$scope', 'trips', 'tripsService', '$state', function($scope, data, tripsService, $state) {
       $scope.trips = data.trips;
       $scope.edit_trip = {};
+      $scope.dateValidate = function() {
+        return $scope.edit_trip.endDate < $scope.edit_trip.startDateDate;
+      };
       return $scope.save = function() {
         var t;
         t = new tripsService($scope.edit_trip);
@@ -15,8 +18,7 @@
           $scope.trips.push(t);
           return $state.go('trips.list');
         })["catch"](function(err) {
-          console.log("!!!!");
-          return console.log(err);
+          return $scope.errors = [err.data.message];
         });
       };
     }

@@ -53,6 +53,7 @@
             </h2>
             <span flex></span>
             <div >
+                <md-button class="" ui-sref="trips.list" href="">My Trips</md-button>
                 <md-button class="" ng-hide="UserProfileService.isLoggedIn() || (state.current.name =='login')" ui-sref="login" href="">Log in</md-button>
                 <md-button class="" ng-show="UserProfileService.isLoggedIn() " ng-click="logout() " href="">Logout </md-button>
                 <md-button class="" ui-sref="signup" ng-hide="UserProfileService.isLoggedIn()">Sign Up</md-button>

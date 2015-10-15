@@ -9,7 +9,7 @@ src_files:
   - public/components/angular-aria/angular-aria.js
   - public/components/angular-animate/angular-animate.js
   - public/components/angular-material/angular-material.js
-  - public/components/angular-materiali-icons/angular-material-icons.js
+  - public/components/angular-material-icons/angular-material-icons.min.js
   - public/app/controllers/tripsController.js
   - public/app/**/*.js
 stylesheets:

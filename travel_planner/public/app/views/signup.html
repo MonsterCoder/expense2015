@@ -1,20 +1,45 @@
-<form name="signupForm" class="mdl-card">
-  <div class="mdl-card_title">
-    <span> Create Account</span>
-  </div>
+<div class="page background-dark " layout ='column' layout-align="center center">
+  <md-card  class="card-middle">
+    <md-card-content >
+      <form name="signupForm" class="mdl-card">
+        <h2 class="md-title"> New Account </h2>
+        <div class="mdl-card__supporting-text">
+          <md-input-container>
+            <label>Username</label>
+            <input ng-required='true' ng-model="data.username"  ng-required="true"></input>
+          </md-input-container>
+          <md-input-container>
+            <label>Password</label>
+            <input ng-required='true' type="password" ng-model="data.password"></input>
+          </md-input-container>
+          <md-input-container>
+            <label>Retype password</label>
+            <input ng-required='true' type="password" ng-required="true" ng-class="match_password()" ng-model="data.password_confirmation"></input>
+          </md-input-container>
+                 
+          <md-input-container>
+            <label>Email</label>
+            <input ng-required='true' ng-model="data.email"  ng-required="true" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/"></input>
+          </md-input-container>
+          <md-input-container>
+            <label>First Name</label>
+            <input ng-required='true' ng-model="data.firstname"  ng-required="true" ></input>
+          </md-input-container>
+          <md-input-container>
+            <label>Last Name</label>
+            <input ng-required='true' ng-model="data.lastname"  ng-required="true" ></input>
+          </md-input-container>
+        </div>
+        <p ng-repeat  = "err in errors">
+          <small class='error'>{{err}}<br/></small>
+        </p>
+        <div class="md-actions" layout="row" layout-align="end center">
+          <md-button class="md-raised md-primary" ng-click="signup()" ng-disabled="!signupForm.$valid">
+            Sign Up!
+          </button>
 
-  <div class="mdl-card__supporting-text">
-    <input ng-model="data.username" ng-required="true" placeholder="username"></input> <br/>
-    <input ng-model="data.password" type="password" ng-required="true"  placeholder="password"></input> <br/>
-    <input ng-model="data.password_confirmation" type="password" ng-required="true" ng-class="match_password()"  placeholder="password confirmation"></input> <br/>
-    <input ng-model="data.email"  ng-required="true" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" placeholder="email"></input> <br/>
-    <input ng-model="data.firstname"  ng-required="true" placeholder="first name"></input> <br/>
-    <input ng-model="data.lastname"  ng-required="true" placeholder="last name"></input> <br/>
-  </div>
-  <div class="mdl-card__actions mdl-card--border">
-    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click="signup()" ng-disabled="!signupForm.$valid">
-      Sign Up!
-    </a>
-    <p ng-repeat="err in errors">{{err}}</p>
-  </div>
-<form>
+        </div>
+      <form>
+    </md-card-content>
+  </md-card>
+</div>

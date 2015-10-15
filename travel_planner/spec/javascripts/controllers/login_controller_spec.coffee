@@ -22,7 +22,7 @@ describe "loginController", ->
       $httpBackend = _$httpBackend_
       $state.go('login')
       userService = UserProfileService
-      $sut = _$controller_("loginController", {$scope: $scope, UserProfileService: userService})
+      $sut = _$controller_("loginController", {$scope: $scope, UserProfileService: userService, $stateParams: {message: 'account created'}})
       $rootScope.$apply()
   
   describe ' login failed ', ->

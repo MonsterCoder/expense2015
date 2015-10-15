@@ -2,7 +2,7 @@ angular.module("TravePlannerApp.contorller.tripsController")
 .controller("editTripController", ['$scope', 'trips', 'tripsService', '$stateParams','$state', ($scope, data, tripsService,$stateParams, $state) ->
   $scope.trips = data.trips
   idx =$stateParams.idx
-  t = $scope.trips[idx]
+  t = data.trips[idx]
   $scope.edit_trip = {
     id: t.id
     destination: t.destination
@@ -20,5 +20,7 @@ angular.module("TravePlannerApp.contorller.tripsController")
       t.endDate = $scope.edit_trip.endDate
       t.comment = $scope.edit_trip.comment
       $state.go('trips.list')
+    .catch  (err) ->
+      $scope.errors =[err.data.message]
 ])
    

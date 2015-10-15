@@ -1,14 +1,30 @@
-<h3>User Login</h3>
-{{title}}
-<form name="userLoginForm">
-  <input ng-model="username" ng-required='true' placeholder='username'></input>
-  <input ng-model='password' ng-required='true' placeholder='password'></input>
-  <div class="mdl-card__actions mdl-card--border">
-    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click="login()" ng-disabled="!userLoginForm.$valid">
-      Login
-    </a>
-    <p ng-repeat="err in errors">{{err}}</p>
-  </div>
-</form>
+<div class="page background-dark " layout ='column' layout-align="center center">
 
-<a ui-sref="signup" href="">Singup</a>
+  <md-card  class="card-middle">
+    <md-card-content >
+      <p class="message">
+        {{message}}
+      </p>
+      <h2 class="md-title">User Login</h2>
+      <form name        = "userLoginForm">
+        <md-input-container>
+          <label>Username</label>
+          <input ng-required='true' ng-model="username">
+        </md-input-container>
+        <md-input-container>
+          <label>Password</label>
+          <input ng-required='true' type="password" ng-model="password">
+        </md-input-container>
+        <p ng-repeat  = "err in errors">
+          <small class='error'>{{err}}</small>
+        </p>
+        <div class="md-actions" layout="row" layout-align="end center">
+          <md-button class="md-raised md-primary"  ng-click="login()" ng-disabled="!userLoginForm.$valid">Login</md-button>
+          
+        </div>
+      </form>
+
+      <a ui-sref = "signup" href="">Sign Up now!</a>
+    </md-card-content>
+  </md-card>
+</div>

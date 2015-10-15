@@ -1,5 +1,5 @@
- angular.module("TravePlannerApp", ['ui.router','720kb.datepicker','TravePlannerApp.interceptor', 'TravePlannerApp.service.UserProfileService', 'TravePlannerApp.service.tripsService','TravePlannerApp.contorllers'])
- .config(['$urlRouterProvider','$stateProvider','$httpProvider', ($urlRouterProvider, $stateProvider, $httpProvider) ->
+ angular.module("TravePlannerApp", ['ngMdIcons', 'ui.router','720kb.datepicker','TravePlannerApp.interceptor', 'TravePlannerApp.service.UserProfileService', 'TravePlannerApp.service.tripsService','TravePlannerApp.contorllers','ngMaterial'])
+ .config(['$urlRouterProvider','$stateProvider','$httpProvider', '$mdThemingProvider', ($urlRouterProvider, $stateProvider, $httpProvider, $mdThemingProvider) ->
     $urlRouterProvider.when("/trips", "/trips/list")
     $urlRouterProvider.otherwise("/welcome")
     
@@ -9,7 +9,7 @@
       templateUrl : 'app/views/welcome.html'
     )
     .state('login',
-      url : '/login',
+      url : '/login?message',
       templateUrl : 'app/views/login.html'
       controller : 'loginController'
     )
@@ -51,6 +51,7 @@
     )
     
     $httpProvider.interceptors.push('tokenHttpInterceptor')
+
  ])
  .run(['$rootScope', '$state','UserProfileService', ($rootScope, $state, UserProfileService) ->
     $rootScope.$on('$stateChangeStart', (event, toState) ->
@@ -58,6 +59,13 @@
          event.preventDefault()
          $state.go('login')
     )
+    $rootScope.UserProfileService = UserProfileService
+    $rootScope.title = UserProfileService.isLoggedIn()
+    $rootScope.state = $state
     
+    $rootScope.logout = () ->
+      UserProfileService.logout()
+      $state.go("welcome")
+
     true
  ])

@@ -1,7 +1,10 @@
 html, body {
     height: 100%;
 }
-
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    line-height: 1.1;
+    text-rendering: optimizelegibility;
+}
 ._720kb-datepicker-calendar-body, ._720kb-datepicker-calendar-days-header, ._720kb-datepicker-calendar-header, ._720kb-datepicker-calendar-years-pagination-pages, .datepicker, [datepicker], datepicker {
     position: static;
 
@@ -9,4 +12,152 @@ html, body {
 
 ._720kb-datepicker-calendar._720kb-datepicker-open {
     width: 220px;
+}
+
+video#pretzel-video { 
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    background-size: cover; 
+}
+
+.page-content {
+    top: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    color: white;
+}
+md-toolbar.header-fixed {
+    position: fixed;
+
+}
+md-toolbar.background-transparent {
+        background-color: rgba(225,225,225, 0.1);
+}
+.space-1 {
+    margin-bottom: 6.25px;
+}
+
+.space-4 {
+    margin-bottom: 25px;
+}
+
+.text-contrast {
+    color: #fff;
+}
+
+.text-branding {
+    text-transform: uppercase;
+}
+
+.text-jumbo {
+    font-size: 60px;
+    font-weight: 700;
+}
+
+.weight {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.borderd-button {
+    border: solid 2px white;
+    padding : 5px 35px;
+}
+
+.card-middle {
+    min-width: 420px;
+    padding:10px;
+}
+
+.page {
+    height: 100%;
+}
+.with-header {
+    padding-top: 70px;
+}
+.background-gray {
+    background-color: rgba(215,215,215,0.5);
+}
+.background-dark {
+    background-color: rgba(8,8,8,0.5);
+}
+.message {
+    color: green;
+}
+.error {
+    color: red;
+}
+
+.list-layout {
+
+    margin-left: auto;
+    margin-right: auto;
+    list-style: none;
+    padding: 20px;
+    background: white;
+    padding: 10px 20px;
+}
+.list-layout li.first-of-type;{
+    padding: 10px 20px !important;
+    border-top: solid 1px lightgray;
+    border-bottom: none;
+}
+.list-item {
+    border-top: 0;
+    padding: 10px 20px !important;
+    border-bottom: solid 1px lightgray;
+}
+
+.list-item .menu-acition-button {
+    display: none;
+}
+.list-item:hover .menu-acition-button {
+    display: block;
+}
+
+.list-header {
+    padding: 10px 20px !important;
+
+    border-bottom: solid 1px lightgray;
+}
+
+.comment {
+    font-size: 85%;
+    color: darkgray;
+}
+
+.filter {
+    text-align: right;
+    padding-right: 10px;
+}
+
+.trip-title {
+    font-weight: bold;
+    font-size: 120%;
+}
+
+datepicker input {
+    border: none;
+    border-bottom: solid 1px lightgray;
+    padding-bottom: 3px;
+}
+
+md-input-container .lift-up {
+    top: -50px;
+    
+}
+.filter-box  {
+    margin-right:20px;
+}
+.filter-box md-input-container {
+    padding-bottom: 0;
+    margin-right:5px;
+}
+
+.push-down {
+    padding-top: 21px;
 }

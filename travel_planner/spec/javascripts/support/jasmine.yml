@@ -6,6 +6,10 @@ src_files:
   - public/components/angular-resource/angular-resource.min.js
   - public/components/angularjs-datepicker/dist/angular-datepicker.min.js
   - public/components/moment/min/moment.min.js
+  - public/components/angular-aria/angular-aria.js
+  - public/components/angular-animate/angular-animate.js
+  - public/components/angular-material/angular-material.js
+  - public/components/angular-material-icons/angular-material-icons.min.js
   - public/app/controllers/tripsController.js
   - public/app/**/*.js
 stylesheets:

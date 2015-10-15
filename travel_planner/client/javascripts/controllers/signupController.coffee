@@ -7,7 +7,7 @@ angular.module("TravePlannerApp.contorller.signupController",[])
     $http
     .post '/users', { user: $scope.data }
     .then (result) ->
-          $state.go("login")
+          $state.go("login", {message: "Your account has been created successfully!"})
     .catch (err)  -> 
           $scope.errors =[err.data.message]
     true

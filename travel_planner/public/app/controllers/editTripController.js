@@ -4,8 +4,7 @@
       var idx, t;
       $scope.trips = data.trips;
       idx = $stateParams.idx;
-      t = $scope.trips[idx];
-
+      t = data.trips[idx];
       $scope.edit_trip = {
         id: t.id,
         destination: t.destination,
@@ -22,6 +21,8 @@
           t.endDate = $scope.edit_trip.endDate;
           t.comment = $scope.edit_trip.comment;
           return $state.go('trips.list');
+        })["catch"](function(err) {
+          return $scope.errors = [err.data.message];
         });
       };
     }

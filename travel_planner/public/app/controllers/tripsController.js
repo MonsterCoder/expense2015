@@ -4,6 +4,57 @@
       var ev;
       $scope.trips = tripsService.buildFromArray(data.trips);
       ev = {};
+      $scope.custom_filter = {};
+      $scope.filter_by = "all";
+      $scope.filters = [
+        {
+          name: "All Trips",
+          value: "all"
+        }, {
+          name: "Past Trips",
+          value: "past"
+        }, {
+          name: "Future Trips",
+          value: "future"
+        }, {
+          name: "Start in 30 days",
+          value: "30days"
+        }, {
+          name: "Custom filter",
+          value: "custom"
+        }
+      ];
+      $scope.filter_trips = function(trip) {
+        switch ($scope.filter_by) {
+          case "all":
+            return true;
+          case 'past':
+            return trip.getDays() < 0;
+          case 'future':
+            return trip.getDays() >= 0;
+          case '30days':
+            return trip.getDays() >= 0 && trip.getDays() <= 30;
+          case 'custom':
+            if ($scope.custom_filter.destination) {
+              if (trip.destination.indexOf($scope.custom_filter.destination) < 0) {
+                return false;
+              }
+            }
+            if ($scope.custom_filter.startDate) {
+              if (trip.startDate < $scope.custom_filter.startDate) {
+                return false;
+              }
+            }
+            if ($scope.custom_filter.endDate) {
+              if (trip.endDate > $scope.custom_filter.endDate) {
+                return false;
+              }
+            }
+            return true;
+          default:
+            return false;
+        }
+      };
       $scope.predicate = 'getDays()';
       $scope.reverse = false;
       $scope.order = function(predicate) {

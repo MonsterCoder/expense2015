@@ -5,7 +5,29 @@
      <ng-md-icon icon="add_circle_outline" style="fill: green" size="52"></ng-md-icon> 
   </md-button>
   <span flex></span>
-  <h2 class="" layout-align="end">All Trips ({{trips.length}})</h2>
+
+  <div ng-show="filter_by == 'custom'" class ="filter-box" layout="flow">
+    <md-input-container>
+      <label class="">Destination</label>
+      <input ng-model="custom_filter.destination"></input>
+    </md-input-container>
+    <md-input-container class="push-down">
+      <label class="lift-up">From Date</label>
+      <datepicker date-format="yyyy-MM-dd"> 
+        <input  ng-model="custom_filter.startDate" md-placeholder="From" ></input>
+      </datepicker>
+    </md-input-container>
+    <md-input-container  class="push-down">
+      <label class="lift-up">To Date</label>
+      <datepicker date-format="yyyy-MM-dd"> 
+        <input  ng-model="custom_filter.endDate" md-placeholder="To" ></input>
+      </datepicker>
+    </md-input-container>
+  </div>
+  <md-select ng-model="filter_by">
+      <md-option ng-repeat="filter in filters" value="{{filter.value}}">{{filter.name}}</md-option>
+  </md-select>
+  
 </div>
   <ul class="list-layout" >
  
@@ -13,7 +35,7 @@
           
           <div class = "" layout="column" flex=80>
             <div layout="row">
-               <a flex =5 ng-click="order('getDays()')" >
+               <a flex =10 ng-click="order('getDays()')" >
                    <ng-md-icon icon="schedule" style="fill: darkblue" ></ng-md-icon> 
                </a>
                <a flex =35 ng-click="order('destination')" >
@@ -22,18 +44,18 @@
                <a flex ="15 " ng-click="order('startDate')" >
                   Start Date
                </a>
-               <a flex ="25 " ng-click="order('endDate')" >
+               <a flex ="20 " ng-click="order('endDate')" >
                   End Date
                </a>
             </div >
  
           </div>
         </li>
-       <li class = "list-item"  ng-repeat=" item in  trips | orderBy:predicate:reverse" layout="row">
+       <li class = "list-item"  ng-repeat=" item in  trips | filter: filter_trips | orderBy:predicate:reverse" layout="row">
 
          <div layout="column" flex=80>
            <div layout="row">
-              <div flex =5>
+              <div flex =10>
                  <span ng-hide = "item.getDays() < 0" class="md-fab" >{{item.getDays() | number:0}}</span>
               </div>
               <div flex =35>
@@ -42,12 +64,12 @@
               <div flex ="15 ">
                  {{item.startDate | date:'MMM d, y'}}
               </div>
-              <div flex ="25 ">
+              <div flex ="20 ">
                  {{item.endDate | date:'MMM d, y'}}
               </div>
            </div >
            <div layout='row'>
-             <div flex=5></div>
+             <div flex=10></div>
             <p class='comment'>{{item.comment}} </p>
            </div>
         </div>

@@ -150,3 +150,14 @@ md-input-container .lift-up {
     top: -50px;
     
 }
+.filter-box  {
+    margin-right:20px;
+}
+.filter-box md-input-container {
+    padding-bottom: 0;
+    margin-right:5px;
+}
+
+.push-down {
+    padding-top: 21px;
+}

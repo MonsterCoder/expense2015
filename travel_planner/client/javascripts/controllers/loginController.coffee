@@ -6,8 +6,14 @@ angular.module("TravePlannerApp.contorller.loginController",[])
     $http
     .post('/auth', {username: $scope.username, password: $scope.password})
     .then (result) ->
-      UserProfileService.setToken result.data.token
-      $state.go("trips.list")
+      UserProfileService.setToken result.data
+      if UserProfileService.isAdmin()
+        $state.go("admin")
+      else
+        $state.go("trips.list")
     .catch (err) ->
-      $scope.errors = [err.data.message]
+      console.log "!!!!"
+      console.log err
+      message =  if err.data then err.data.message else err.message
+      $scope.errors = [message]
 ])

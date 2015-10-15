@@ -8,10 +8,18 @@
           username: $scope.username,
           password: $scope.password
         }).then(function(result) {
-          UserProfileService.setToken(result.data.token);
-          return $state.go("trips.list");
+          UserProfileService.setToken(result.data);
+          if (UserProfileService.isAdmin()) {
+            return $state.go("admin");
+          } else {
+            return $state.go("trips.list");
+          }
         })["catch"](function(err) {
-          return $scope.errors = [err.data.message];
+          var message;
+          console.log("!!!!");
+          console.log(err);
+          message = err.data ? err.data.message : err.message;
+          return $scope.errors = [message];
         });
       };
     }

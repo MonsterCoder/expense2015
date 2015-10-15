@@ -1,4 +1,4 @@
- angular.module("TravePlannerApp", ['ngMdIcons', 'ui.router','720kb.datepicker','TravePlannerApp.interceptor', 'TravePlannerApp.service.UserProfileService', 'TravePlannerApp.service.tripsService','TravePlannerApp.contorllers','ngMaterial'])
+ angular.module("TravePlannerApp", ['ngMdIcons', 'ui.router','720kb.datepicker','TravePlannerApp.interceptor', 'TravePlannerApp.service.UserProfileService', 'TravePlannerApp.service.usersService', 'TravePlannerApp.service.tripsService','TravePlannerApp.contorllers','ngMaterial'])
  .config(['$urlRouterProvider','$stateProvider','$httpProvider', '$mdThemingProvider', ($urlRouterProvider, $stateProvider, $httpProvider, $mdThemingProvider) ->
     $urlRouterProvider.when("/trips", "/trips/list")
     $urlRouterProvider.otherwise("/welcome")
@@ -49,6 +49,16 @@
       templateUrl: 'app/views/trips/new_trip.html'
       controller: 'editTripController'
     )
+    .state('admin',
+      url : '/admin'
+      data:
+        admin: true
+      templateUrl: 'app/views/admin/dashboard.html',
+      resolve:
+        users: ['usersService', (usersService) ->
+          usersService.get().$promise
+        ]
+    )
     
     $httpProvider.interceptors.push('tokenHttpInterceptor')
 
@@ -58,6 +68,9 @@
       if toState.data and toState.data.login==true and !UserProfileService.isLoggedIn()
          event.preventDefault()
          $state.go('login')
+      if toState.data and toState.data.admin==true and !UserProfileService.isAdmin()
+        event.preventDefault()
+        $state.go('login')
     )
     $rootScope.UserProfileService = UserProfileService
     $rootScope.title = UserProfileService.isLoggedIn()

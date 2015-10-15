@@ -1,5 +1,5 @@
 (function() {
-  angular.module("TravePlannerApp", ['ngMdIcons', 'ui.router', '720kb.datepicker', 'TravePlannerApp.interceptor', 'TravePlannerApp.service.UserProfileService', 'TravePlannerApp.service.tripsService', 'TravePlannerApp.contorllers', 'ngMaterial']).config([
+  angular.module("TravePlannerApp", ['ngMdIcons', 'ui.router', '720kb.datepicker', 'TravePlannerApp.interceptor', 'TravePlannerApp.service.UserProfileService', 'TravePlannerApp.service.usersService', 'TravePlannerApp.service.tripsService', 'TravePlannerApp.contorllers', 'ngMaterial']).config([
     '$urlRouterProvider', '$stateProvider', '$httpProvider', '$mdThemingProvider', function($urlRouterProvider, $stateProvider, $httpProvider, $mdThemingProvider) {
       $urlRouterProvider.when("/trips", "/trips/list");
       $urlRouterProvider.otherwise("/welcome");
@@ -48,6 +48,19 @@
         },
         templateUrl: 'app/views/trips/new_trip.html',
         controller: 'editTripController'
+      }).state('admin', {
+        url: '/admin',
+        data: {
+          admin: true
+        },
+        templateUrl: 'app/views/admin/dashboard.html',
+        resolve: {
+          users: [
+            'usersService', function(usersService) {
+              return usersService.get().$promise;
+            }
+          ]
+        }
       });
       return $httpProvider.interceptors.push('tokenHttpInterceptor');
     }
@@ -55,6 +68,10 @@
     '$rootScope', '$state', 'UserProfileService', function($rootScope, $state, UserProfileService) {
       $rootScope.$on('$stateChangeStart', function(event, toState) {
         if (toState.data && toState.data.login === true && !UserProfileService.isLoggedIn()) {
+          event.preventDefault();
+          $state.go('login');
+        }
+        if (toState.data && toState.data.admin === true && !UserProfileService.isAdmin()) {
           event.preventDefault();
           return $state.go('login');
         }

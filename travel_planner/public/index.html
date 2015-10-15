@@ -26,7 +26,8 @@
     <script src="app/controllers/editTripController.js"></script>
     <script src="app/controllers/controllers.js"></script>
     <script src="app/services/tripsService.js"></script>
-    <script src="app/services/userService.js"></script>
+    <script src="app/services/userProfileService.js"></script>
+    <script src="app/services/usersService.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.6.0/angular-material-icons.min.js"></script> 
     <script src="app/app.js"></script>
     <link rel='stylesheet' href="components/angularjs-datepicker/dist/angular-datepicker.min.css"></link>
@@ -53,7 +54,8 @@
             </h2>
             <span flex></span>
             <div >
-                <md-button class="" ui-sref="trips.list" href="">My Trips</md-button>
+                <md-button class="" ng-show="UserProfileService.isAdmin()" ui-sref="admin" href="">Dashboard</md-button>
+                <md-button class="" ng-show="UserProfileService.isLoggedIn() && !UserProfileService.isAdmin()" ui-sref="trips.list" href="">My Trips</md-button>
                 <md-button class="" ng-hide="UserProfileService.isLoggedIn() || (state.current.name =='login')" ui-sref="login" href="">Log in</md-button>
                 <md-button class="" ng-show="UserProfileService.isLoggedIn() " ng-click="logout() " href="">Logout </md-button>
                 <md-button class="" ui-sref="signup" ng-hide="UserProfileService.isLoggedIn()">Sign Up</md-button>

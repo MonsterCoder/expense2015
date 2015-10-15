@@ -139,3 +139,14 @@ md-toolbar.background-transparent {
     font-weight: bold;
     font-size: 120%;
 }
+
+datepicker input {
+    border: none;
+    border-bottom: solid 1px lightgray;
+    padding-bottom: 3px;
+}
+
+md-input-container .lift-up {
+    top: -50px;
+    
+}

@@ -1,10 +1,39 @@
-<h3>Trip editor</h3>
-<input ng-model="edit_trip.destination" ng-required ='true'></input> </br>
-<datepicker date-format="yyyy-MM-dd">
-  <input ng-model="edit_trip.startDate" ></input> 
-</datepicker>
-<datepicker date-format="yyyy-MM-dd">
-  <input ng-model="edit_trip.endDate" ></input>
-</datepicker>
-<textarea ng-model="edit_trip.comment"></textarea> </br>
-<button ng-click="save()">Save</button>
+<div class="page  " layout ='column' layout-align="center center">
+
+  <md-card  class="card-middle">
+    <md-card-content >
+      <p class="message">
+        {{message}}
+      </p>
+      <h2 class="md-title">Trip Editor</h2>
+      <form name   = "editTripForm">
+        <md-input-container>
+          <label>Destination</label>
+          <input ng-required='true' ng-model="edit_trip.destination">
+        </md-input-container>
+        <md-input-container>
+          <label class="lift-up">Start Date</label>
+          <datepicker date-format="yyyy-MM-dd"> 
+            <input ng-model="edit_trip.startDate" md-placeholder="Start Date" ng-required='true' ></input>
+          </datepicker>
+        </md-input-container>
+        <md-input-container>
+          <label class="lift-up">End Date</label>
+          <datepicker date-format="yyyy-MM-dd"> <input ng-model="edit_trip.endDate" md-placeholder="End Date" ng-required='true'></input></datepicker>
+        </md-input-container>
+        <md-input-container flex="">
+          <label>Comment</label>
+          <textarea ng-model="edit_trip.comment" columns="1" md-maxlength="150"></textarea>
+        </md-input-container>
+        <p ng-repeat  = "err in errors">
+          <small class='error'>{{err}}</small>
+        </p>
+        <div class="md-actions" layout="row" layout-align="end center">
+          <md-button class="md-raised md-primary"  ng-click="save()" ng-disabled="!editTripForm.$valid">Login</md-button>
+          
+        </div>
+
+      </form>
+    </md-card-content >
+  </md-card >
+</div>

@@ -20,5 +20,7 @@ angular.module("TravePlannerApp.contorller.tripsController")
       t.endDate = $scope.edit_trip.endDate
       t.comment = $scope.edit_trip.comment
       $state.go('trips.list')
+    .catch  (err) ->
+      $scope.errors =[err.data.message]
 ])
    

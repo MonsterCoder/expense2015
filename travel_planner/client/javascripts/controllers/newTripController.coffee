@@ -14,6 +14,5 @@ angular.module("TravePlannerApp.contorller.tripsController")
       $scope.trips.push t
       $state.go('trips.list')
     .catch  (err) ->
-      console.log "!!!!"
-      console.log(err)
+       $scope.errors =[err.data.message]
 ])

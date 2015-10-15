@@ -10,4 +10,16 @@ class ApplicationController < ActionController::Base
     
     render json: {message: message}, status: 400
   end
+  
+  def require_login
+    authenticate_or_request_with_http_token do |token,options|
+      if User.isAdmin(token)
+        
+        @current_user = User.find(params["user_id"].to_i)
+ 
+      else
+        @current_user = User.find_user_by_token token
+      end
+    end
+  end
 end

@@ -5,9 +5,13 @@ class User < ActiveRecord::Base
   validates :firstname, presence: true
   validates :username, presence: true, uniqueness: true
   validates :email, uniqueness: true
-  
+
   def getToken
     JWT.encode({user_id: id}, Rails.application.secrets.secret_key_base)
+  end
+  
+  def self.isAdmin(token)
+    Constants::ADMIN_ID == JWT.decode(token, Rails.application.secrets.secret_key_base)[0]['user_id']
   end
   
   def self.find_user_by_token(token)
@@ -16,11 +20,16 @@ class User < ActiveRecord::Base
   end
   
   def self.getAdminToken
-    JWT.encode({user_id: Constants::ADMIN_ID, role: 'admin'}, Rails.application.secrets.secret_key_base)
+    JWT.encode({user_id: Constants::ADMIN_ID, role: Roles::ADMIN}, Rails.application.secrets.secret_key_base)
   end
   
 end
 
 module Constants
+  ADMIN_USERNAME =  'admin'
   ADMIN_ID= 999999
+end
+
+module Roles
+  ADMIN='admin'
 end

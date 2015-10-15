@@ -1,15 +1,66 @@
-<h4>trips</h4>
-<div ng-repeat=" item in  trips">
-  <div>{{item.id}}</div>
-  <div>{{item.destination}}</div>
-  <div>{{item.startDate}}</div>
-  <div>{{item.endDate}}</div>
-  <div>{{item.comment}}</div>
-  <div ng-hide = "item.getDays() < 0"> Days: {{item.getDays()}}
-    <a ng-click="delete($index)" href="">Remove</a>
-    <a ng-click="edit($index)" href="">Edit</a>
-  
-  </div>
-  <br/>
+
+<md-button class="md-button" ui-sref="trips.new_trip" href="">
+   <ng-md-icon icon="add_circle_outline" style="fill: green" size="52"></ng-md-icon> 
+</md-button>
+<div class="filter">
+<h2 class="" layout-align="end">All Trips ({{trips.length}})</h2>
 </div>
-<a ui-sref="trips.new_trip" href="">Add a trip</a>
+  <ul class="list-layout" >
+ 
+       <li class = "list-header" >
+          
+          <div class = "" layout="column" flex=80>
+            <div layout="row">
+               <div flex =5>
+                
+               </div>
+               <div flex =35>
+                 Destination
+               </div>
+               <div flex ="15 ">
+                  Start Date
+               </div>
+               <div flex ="25 ">
+                  End Date
+               </div>
+            </div >
+ 
+          </div>
+        </li>
+       <li class = "list-item"  ng-repeat=" item in  trips" layout="row">
+
+         <div layout="column" flex=80>
+           <div layout="row">
+              <div flex =5>
+                 <span ng-hide = "item.getDays() < 0" class="md-fab" >{{item.getDays() | number:0}}</span>
+              </div>
+              <div flex =35>
+                <span class="trip-title">{{item.destination}}</span>
+              </div>
+              <div flex ="15 ">
+                 {{item.startDate | date:'MMM d, y'}}
+              </div>
+              <div flex ="25 ">
+                 {{item.endDate | date:'MMM d, y'}}
+              </div>
+           </div >
+           <div layout='row'>
+             <div flex=5></div>
+            <p class='comment'>{{item.comment}} </p>
+           </div>
+        </div>
+        <div flex=20>
+              <md-button ng-click="delete($index)" class="menu-acition-button">
+                <ng-md-icon icon="remove_circle_outline" style="fill: red" ></ng-md-icon> 
+              </md-button>
+              <md-button ng-click="edit($index)" class="menu-acition-button">
+                <ng-md-icon icon="edit" style="fill: green" ></ng-md-icon> 
+              </md-button>
+
+         </div>
+      </li >
+
+      
+
+  </ul>
+  

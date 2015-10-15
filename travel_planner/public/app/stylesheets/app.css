@@ -91,3 +91,51 @@ md-toolbar.background-transparent {
 .error {
     color: red;
 }
+
+.list-layout {
+
+    margin-left: auto;
+    margin-right: auto;
+    list-style: none;
+    padding: 20px;
+    background: white;
+    padding: 10px 20px;
+}
+.list-layout li.first-of-type;{
+    padding: 10px 20px !important;
+    border-top: solid 1px lightgray;
+    border-bottom: none;
+}
+.list-item {
+    border-top: 0;
+    padding: 10px 20px !important;
+    border-bottom: solid 1px lightgray;
+}
+
+.list-item .menu-acition-button {
+    display: none;
+}
+.list-item:hover .menu-acition-button {
+    display: block;
+}
+
+.list-header {
+    padding: 10px 20px !important;
+
+    border-bottom: solid 1px lightgray;
+}
+
+.comment {
+    font-size: 85%;
+    color: darkgray;
+}
+
+.filter {
+    text-align: right;
+    padding-right: 10px;
+}
+
+.trip-title {
+    font-weight: bold;
+    font-size: 120%;
+}

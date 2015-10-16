@@ -2,6 +2,7 @@
   angular.module("TravePlannerApp", ['ngMdIcons', 'ui.router', '720kb.datepicker', 'TravePlannerApp.interceptor', 'TravePlannerApp.service.UserProfileService', 'TravePlannerApp.service.usersService', 'TravePlannerApp.service.tripsService', 'TravePlannerApp.contorllers', 'ngMaterial']).config([
     '$urlRouterProvider', '$stateProvider', '$httpProvider', '$mdThemingProvider', function($urlRouterProvider, $stateProvider, $httpProvider, $mdThemingProvider) {
       $urlRouterProvider.when("/trips", "/trips/list");
+      $urlRouterProvider.when("/admin", "/admin/list");
       $urlRouterProvider.otherwise("/welcome");
       $stateProvider.state('welcome', {
         url: '/welcome',
@@ -61,6 +62,13 @@
             }
           ]
         }
+      }).state('admin.list', {
+        url: '/',
+        templateUrl: 'app/views/admin/list.html',
+        data: {
+          admin: true
+        },
+        controller: 'adminController'
       });
       return $httpProvider.interceptors.push('tokenHttpInterceptor');
     }

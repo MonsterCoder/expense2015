@@ -1,0 +1,75 @@
+<div class="filter" layout="row">
+  <md-button flex =5 class="md-button"   href="">
+     <ng-md-icon icon="add_circle_outline" style="fill: green" size="52"></ng-md-icon> 
+  </md-button>
+  <md-button flex =5 class="md-button" ng-click="" href="">
+     <ng-md-icon icon="print" style="fill: green" size="52"></ng-md-icon> 
+  </md-button>
+  <span flex></span>
+</div>
+
+<ul class="list-layout printable" >
+
+     <li class = "list-header" >
+        
+        <div class="user-content" layout="column" flex=80>
+          <div layout="row">
+             <a flex =10 ng-click="order('id')" >
+                Id
+             </a>
+             <a flex =15 ng-click="order('username')" >
+                 Username
+             </a>
+             <a flex =15 ng-click="order('firstname')" >
+               First Name
+             </a>
+             <a flex ="15 " ng-click="order('lastname')" >
+                Last Name
+             </a>
+             <a flex ="25 " ng-click="order('email')" >
+                Email
+             </a>
+             <a flex ="20 " ng-click="order('created_at')" >
+                Created At
+             </a>
+          </div >
+
+        </div>
+      </li>
+     <li class = "list-item"  ng-repeat=" item in  users |  orderBy:predicate:reverse" layout="row">
+       <div class="usercontent" layout="column" flex=80>
+         <div layout="row">
+            <div flex =10>
+               <span >{{item.id}}</span>
+            </div>
+            <div flex =15>
+               <span >{{item.username}}</span>
+            </div>
+            <div flex =15>
+              <span >{{item.firstname}}</span>
+            </div>
+            <div flex ="15 ">
+               {{item.lastname}}
+            </div>
+            <div flex ="25 ">
+               {{item.email}}
+            </div>
+            <div flex ="20 ">
+               {{item.created_at | date:'MMM d, y  h:mma'}}
+            </div>
+         </div >
+      </div>
+      <div class ="actions" flex=20 layout="row">
+            <md-button ng-click="delete($index)" class="menu-acition-button">
+              <ng-md-icon icon="remove_circle_outline" style="fill: red" ></ng-md-icon> 
+            </md-button>
+            <md-button ng-click="edit($index)" class="menu-acition-button">
+              <ng-md-icon icon="edit" style="fill: green" ></ng-md-icon> 
+            </md-button>
+
+       </div>
+    </li >
+
+    
+
+</ul>

@@ -8,7 +8,7 @@ angular.module("TravePlannerApp.contorller.loginController",[])
     .then (result) ->
       UserProfileService.setToken result.data
       if UserProfileService.isAdmin()
-        $state.go("admin")
+        $state.go("admin.list")
       else
         $state.go("trips.list")
     .catch (err) ->

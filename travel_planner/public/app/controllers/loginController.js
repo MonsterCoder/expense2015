@@ -10,7 +10,7 @@
         }).then(function(result) {
           UserProfileService.setToken(result.data);
           if (UserProfileService.isAdmin()) {
-            return $state.go("admin");
+            return $state.go("admin.list");
           } else {
             return $state.go("trips.list");
           }

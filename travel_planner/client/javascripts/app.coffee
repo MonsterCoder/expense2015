@@ -81,6 +81,23 @@
     $httpProvider.interceptors.push('tokenHttpInterceptor')
 
  ])
+ .directive('googleplace', () ->
+         require : 'ngModel',
+         link : (scope, element, attrs, model) ->
+            options = {
+                 types : ['(cities)'],
+            }
+            attrs.$set('placeholder',"")
+            scope.gPlace = new google.maps.places.Autocomplete(element[0], options);
+
+            google.maps.event.addListener(scope.gPlace, 'place_changed',
+                     () ->
+                         scope.$apply( () ->
+                             model.$setViewValue(element.val());
+                         )
+                    )
+         
+ )
  .run(['$rootScope', '$state','UserProfileService', ($rootScope, $state, UserProfileService) ->
     $rootScope.$on('$stateChangeStart', (event, toState) ->
       if toState.data and toState.data.login==true and !UserProfileService.isLoggedIn()

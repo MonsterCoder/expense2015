@@ -13,17 +13,15 @@ RSpec.describe 'admin', type: :request do
       password: '123456', 
       password_confirmation: '123456'
     } }
-    context "access control" do
+    context "access restriction" do
       it " requires admin role" do
         get "/admin"
         expect(response.status).to equal 401
-        
       end
       
       it " allows access for admin user" do
         get "/admin", {}, headers
         expect(response.status).to equal 200
-        
       end
     end
     
@@ -48,9 +46,5 @@ RSpec.describe 'admin', type: :request do
         
       end
     end
-    
-    
-
-
   end
 end

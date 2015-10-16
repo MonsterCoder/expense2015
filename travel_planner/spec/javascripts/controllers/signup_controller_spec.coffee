@@ -14,7 +14,7 @@ describe 'signup_controller', ->
       $scope = _$rootScope_.$new()
       $rootScope = _$rootScope_
       $httpBackend = _$httpBackend_
-      $sut = _$controller_("signupController", { $scope : $scope })
+      $sut = _$controller_("signupController", { $scope : $scope, users: { users: []} })
       $rootScope.$apply()
       
   beforeEach ->

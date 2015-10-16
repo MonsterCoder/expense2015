@@ -2,7 +2,7 @@
   <md-card  class="card-middle">
     <md-card-content >
       <form name="signupForm" class="mdl-card">
-        <h2 class="md-title"> User Account </h2>
+        <h2 class="md-title"> {{labels.title}} </h2>
         <div class="mdl-card__supporting-text">
           <md-input-container>
             <label>Username</label>
@@ -38,7 +38,7 @@
             Cancel
           </md-button>
           <md-button class="md-raised md-primary" ng-click="signup()" ng-disabled="!signupForm.$valid">
-            Sign Up!
+            {{labels.action}}
           </button>
 
         </div>

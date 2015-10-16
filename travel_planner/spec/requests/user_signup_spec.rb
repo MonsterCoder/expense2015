@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'account', type: :request do
+RSpec.describe 'signup', type: :request do
   describe "#create" do
     let(:new_user) { FactoryGirl.build(:user, password: '123456', password_confirmation: '123456')}
     let(:data)  { {

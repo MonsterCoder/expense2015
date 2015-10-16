@@ -1,28 +1,17 @@
 == README
+  A single page application with REST API backend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+=== Installation
+* npm install
+* bower install
+* bundle install
+* bundle exec rake db:migrate
+* export TP_ADMIN_PASSWORD= your_password
 
-Things you may want to cover:
+=== Test
+* bundle exec rake rspec
+* bundle exec rake jasmine
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+=== Usage
+* regular user can sign-up and login
+* admin user logins with 'admin : your_password'

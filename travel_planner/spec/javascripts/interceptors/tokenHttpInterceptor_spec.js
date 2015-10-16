@@ -28,7 +28,7 @@ describe("tokenHttpIntercepter", function() {
     })
     
     it (" sets token in request header if a stored token exists", function() {
-        UserProfileService.setToken(123456);
+        UserProfileService.setToken({role: 'user', token: 123456});
 
         $httpBackend.when('GET', /trips/, null, function(headers) {
              expect(headers.Authorization).toEqual("Token token=\"123456\"");

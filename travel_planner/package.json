@@ -1,0 +1,16 @@
+{
+  "name": "travel_planner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "bower": "^1.6.2",
+    "phantomjs": "^1.9.18"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "postinstall": "./node_modules/bower/bin/bower install"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,4 +1,4 @@
-describe("UserService", function() {
+describe("UserProileService", function() {
     var userProfileService, aiStorage
     beforeEach(module("TravePlannerApp"));
     beforeEach(inject(function(UserProfileService, _aiStorage_) {
@@ -20,7 +20,7 @@ describe("UserService", function() {
     
     describe("login", function() {
         beforeEach(function() {
-            userProfileService.setToken("abcdefg");
+            userProfileService.setToken({token: "abcdefg"});
         })
         
         it ("returns correct token", function() {
@@ -37,7 +37,7 @@ describe("UserService", function() {
             })
             
             it ("returns no token", function() {
-                expect(userProfileService.token()).toBeNull()
+                expect(userProfileService.token()).toBeUndefined()
             })
 
             it (" is logged in", function() {
@@ -48,7 +48,7 @@ describe("UserService", function() {
     
     describe("persisitence", function() {
         beforeEach(function() {
-            aiStorage.set("currentUser", "abc");
+            aiStorage.set("currentUser", {role:'user', token:"abc"});
         })
         
         it ("returns correct token", function() {

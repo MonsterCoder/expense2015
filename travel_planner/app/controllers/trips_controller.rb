@@ -2,7 +2,8 @@ class TripsController < ApplicationController
   before_filter :require_login
   
   def index
-    render json: {trips: Trip.all()}
+    rt = @current_user.trips if @current_user
+    render json: {trips: rt}
   end
   
   def create

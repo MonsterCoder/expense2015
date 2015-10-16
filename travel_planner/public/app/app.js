@@ -84,7 +84,24 @@
       });
       return $httpProvider.interceptors.push('tokenHttpInterceptor');
     }
-  ]).run([
+  ]).directive('googleplace', function() {
+    return {
+      require: 'ngModel',
+      link: function(scope, element, attrs, model) {
+        var options;
+        options = {
+          types: ['(cities)']
+        };
+        attrs.$set('placeholder', "");
+        scope.gPlace = new google.maps.places.Autocomplete(element[0], options);
+        return google.maps.event.addListener(scope.gPlace, 'place_changed', function() {
+          return scope.$apply(function() {
+            return model.$setViewValue(element.val());
+          });
+        });
+      }
+    };
+  }).run([
     '$rootScope', '$state', 'UserProfileService', function($rootScope, $state, UserProfileService) {
       $rootScope.$on('$stateChangeStart', function(event, toState) {
         if (toState.data && toState.data.login === true && !UserProfileService.isLoggedIn()) {

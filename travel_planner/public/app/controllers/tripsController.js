@@ -77,7 +77,7 @@
       };
       $scope["delete"] = function(idx) {
         var confirm;
-        confirm = $mdDialog.confirm(ev).title('Would you like to delete this trip?').content('').ariaLabel('Delete trip').targetEvent(ev).ok('Confirm!').cancel('Cancel');
+        confirm = $mdDialog.confirm(ev).title('Are you sure to delete this trip?').content('').ariaLabel('Delete trip').targetEvent(ev).ok('Confirm!').cancel('Cancel');
         return $mdDialog.show(confirm).then(function() {
           var t;
           t = new tripsService($scope.trips[idx]);

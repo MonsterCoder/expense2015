@@ -59,7 +59,7 @@ angular.module("TravePlannerApp.contorller.tripsController", ['720kb.datepicker'
   
   $scope.delete = (idx) ->
     confirm = $mdDialog.confirm(ev)
-          .title('Would you like to delete this trip?')
+          .title('Are you sure to delete this trip?')
           .content('')
           .ariaLabel('Delete trip')
           .targetEvent(ev)

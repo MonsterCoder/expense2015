@@ -1,0 +1,17 @@
+== README
+  A single page application with REST API backend
+
+=== Installation
+* npm install
+* bower install
+* bundle install
+* bundle exec rake db:migrate
+* export TP_ADMIN_PASSWORD= your_password
+
+=== Test
+* bundle exec rake spec
+* bundle exec rake jasmine:ci
+
+=== Usage
+* regular user can sign-up and login
+* admin user logins with 'admin : your_password'

@@ -9,8 +9,8 @@
 * export TP_ADMIN_PASSWORD= your_password
 
 === Test
-* bundle exec rake rspec
-* bundle exec rake jasmine
+* bundle exec rake spec
+* bundle exec rake jasmine:ci
 
 === Usage
 * regular user can sign-up and login

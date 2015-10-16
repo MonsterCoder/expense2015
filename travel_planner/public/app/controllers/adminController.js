@@ -32,7 +32,8 @@
       };
       return $scope.edit = function(idx) {
         return $state.go("admin.edit_user", {
-          idx: idx
+          idx: idx,
+          call_back: 'admin.list'
         });
       };
     }

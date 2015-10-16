@@ -32,6 +32,6 @@ angular.module("TravePlannerApp.contorller.adminController", ['720kb.datepicker'
 
     )
   $scope.edit = (idx) ->
-    $state.go("admin.edit_user", {idx : idx})
+    $state.go("admin.edit_user", {idx : idx, call_back: 'admin.list'})
 
 ])

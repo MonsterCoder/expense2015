@@ -15,8 +15,12 @@
       controller : 'loginController'
     )
     .state('signup',
-      url : '/signup',
+      url : '/signup?call_back',
       templateUrl : 'app/views/signup.html',
+      resolve: {
+        users: ->
+          []
+      }
       controller : 'signupController'
     )
     .state('trips', 
@@ -67,7 +71,13 @@
         admin: true
       controller: 'adminController'
     )
-    
+    .state('admin.edit_user',
+      url : '/edit/:idx?call_back'
+      data:
+        admin: true
+      templateUrl : 'app/views/signup.html',
+      controller: 'signupController'
+    )
     $httpProvider.interceptors.push('tokenHttpInterceptor')
 
  ])

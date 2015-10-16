@@ -12,8 +12,13 @@
         templateUrl: 'app/views/login.html',
         controller: 'loginController'
       }).state('signup', {
-        url: '/signup',
+        url: '/signup?call_back',
         templateUrl: 'app/views/signup.html',
+        resolve: {
+          users: function() {
+            return [];
+          }
+        },
         controller: 'signupController'
       }).state('trips', {
         url: '/trips',
@@ -69,6 +74,13 @@
           admin: true
         },
         controller: 'adminController'
+      }).state('admin.edit_user', {
+        url: '/edit/:idx?call_back',
+        data: {
+          admin: true
+        },
+        templateUrl: 'app/views/signup.html',
+        controller: 'signupController'
       });
       return $httpProvider.interceptors.push('tokenHttpInterceptor');
     }

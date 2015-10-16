@@ -84,7 +84,7 @@
           return t.$delete().then(function() {
             $scope.trips.splice(idx, 1);
             data.trips.splice(idx, 1);
-            return $state.go("trips.list", params, {
+            return $state.go("trips.list", {}, {
               reload: 'trips'
             });
           });

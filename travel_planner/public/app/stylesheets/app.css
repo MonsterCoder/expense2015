@@ -77,7 +77,7 @@ md-toolbar.background-transparent {
     height: 100%;
 }
 .with-header {
-    padding-top: 70px;
+    padding-top: 62px;
 }
 .background-gray {
     background-color: rgba(215,215,215,0.5);
@@ -93,9 +93,9 @@ md-toolbar.background-transparent {
 }
 
 .list-layout {
-
-    margin-left: auto;
-    margin-right: auto;
+    margin-top:10px;
+    margin-left: 10px;
+    margin-right: 10px;
     list-style: none;
     padding: 20px;
     background: white;
@@ -110,6 +110,7 @@ md-toolbar.background-transparent {
     border-top: 0;
     padding: 10px 20px !important;
     border-bottom: solid 1px lightgray;
+    font-weight: 400;
 }
 
 .list-item .menu-acition-button {
@@ -120,9 +121,9 @@ md-toolbar.background-transparent {
 }
 
 .list-header {
-    padding: 10px 20px !important;
-
+    color: darkgray;
     border-bottom: solid 1px lightgray;
+    font-size: 80% !important;
 }
 
 .comment {
@@ -133,6 +134,11 @@ md-toolbar.background-transparent {
 .filter {
     text-align: right;
     padding-right: 10px;
+    padding-top: 10px;
+}
+
+.filter md-select {
+    margin: auto;
 }
 
 .trip-title {

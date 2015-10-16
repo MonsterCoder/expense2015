@@ -1,9 +1,9 @@
 <div class="filter" layout="row">
-  <md-button flex =5 class="md-button"   href="">
-     <ng-md-icon icon="add_circle_outline" style="fill: green" size="52"></ng-md-icon> 
+  <md-button flex =5 class="md-button" ui-sref="signup({call_back: 'admin.list'})"  href="">
+     <ng-md-icon icon="add_circle_outline" style="fill: green" size="36"></ng-md-icon> 
   </md-button>
-  <md-button flex =5 class="md-button" ng-click="" href="">
-     <ng-md-icon icon="print" style="fill: green" size="52"></ng-md-icon> 
+  <md-button flex =5 class="md-button" ng-click="print.open()" href="">
+     <ng-md-icon icon="print" style="fill: green" size="36"></ng-md-icon> 
   </md-button>
   <span flex></span>
 </div>
@@ -13,23 +13,23 @@
      <li class = "list-header" >
         
         <div class="user-content" layout="column" flex=80>
-          <div layout="row">
-             <a flex =10 ng-click="order('id')" >
+          <div layout="row" class="md-toolbar-tools">
+             <a flex =10 ng-click="order('id')"   href="">
                 Id
              </a>
-             <a flex =15 ng-click="order('username')" >
+             <a flex =15 ng-click="order('username')"  href="">
                  Username
              </a>
-             <a flex =15 ng-click="order('firstname')" >
+             <a flex =15 ng-click="order('firstname')"  href="">
                First Name
              </a>
-             <a flex ="15 " ng-click="order('lastname')" >
+             <a flex ="15 " ng-click="order('lastname')"  href="">
                 Last Name
              </a>
-             <a flex ="25 " ng-click="order('email')" >
+             <a flex ="25 " ng-click="order('email')"  href="">
                 Email
              </a>
-             <a flex ="20 " ng-click="order('created_at')" >
+             <a flex ="20 " ng-click="order('created_at')"  href="">
                 Created At
              </a>
           </div >

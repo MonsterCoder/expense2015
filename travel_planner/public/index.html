@@ -50,12 +50,16 @@
     <md-content>
         <md-toolbar class="header-fixed" ng-class="{'background-transparent': state.current.name =='welcome' || state.current.name =='login' || state.current.name =='signup'}" >
           <div class="md-toolbar-tools">
-            <h2 >
-              <span>Travel Planner </span>
-            </h2>
+            <ng-md-icon icon="blur_on" style="fill: white" size="42"></ng-md-icon>
+            <a ui-sref="welcome" href="">
+              
+              <h2 >
+                  Travel Planner 
+              </h2>
+            </a>
             <span flex></span>
             <div >
-                <md-button class="" ng-show="UserProfileService.isAdmin()" ui-sref="admin" href="">Dashboard</md-button>
+                <md-button class="" ng-show="UserProfileService.isAdmin()" ui-sref="admin.list" href="admim/">Dashboard</md-button>
                 <md-button class="" ng-show="UserProfileService.isLoggedIn() && !UserProfileService.isAdmin()" ui-sref="trips.list" href="">My Trips</md-button>
                 <md-button class="" ng-hide="UserProfileService.isLoggedIn() || (state.current.name =='login')" ui-sref="login" href="">Log in</md-button>
                 <md-button class="" ng-show="UserProfileService.isLoggedIn() " ng-click="logout() " href="">Logout </md-button>

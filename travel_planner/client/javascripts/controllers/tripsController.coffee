@@ -72,7 +72,7 @@ angular.module("TravePlannerApp.contorller.tripsController", ['720kb.datepicker'
       .then () ->
         $scope.trips.splice(idx, 1)
         data.trips.splice(idx, 1)
-        $state.go("trips.list", params, {reload: 'trips'})
+        $state.go("trips.list", {}, {reload: 'trips'})
         
     )
     

@@ -3,6 +3,8 @@
     '$scope', 'trips', 'tripsService', '$state', function($scope, data, tripsService, $state) {
       $scope.trips = data.trips;
       $scope.edit_trip = {};
+      
+      
       $scope.dateValidate = function() {
         return $scope.edit_trip.endDate < $scope.edit_trip.startDateDate;
       };

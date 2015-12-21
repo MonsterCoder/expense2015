@@ -11,17 +11,17 @@
 
   <div ng-show="filter_by == 'custom'" class ="filter-box" layout="flow">
     <md-input-container>
-      <label class="">Destination</label>
+      <label class="">Description</label>
       <input ng-model="custom_filter.destination"></input>
     </md-input-container>
     <md-input-container class="push-down">
-      <label class="lift-up">From Date</label>
+      <label class="lift-up">Date</label>
       <datepicker date-format="yyyy-MM-dd"> 
         <input  ng-model="custom_filter.startDate" md-placeholder="From" ></input>
       </datepicker>
     </md-input-container>
     <md-input-container  class="push-down">
-      <label class="lift-up">To Date</label>
+      <label class="lift-up">Time</label>
       <datepicker date-format="yyyy-MM-dd"> 
         <input  ng-model="custom_filter.endDate" md-placeholder="To" ></input>
       </datepicker>
@@ -47,13 +47,13 @@
                    <ng-md-icon icon="schedule" style="fill: darkblue" ></ng-md-icon> 
                </a>
                <a flex =35 ng-click="order('destination')"  href="">
-                 Destination
+                 Description
                </a>
                <a flex ="15 " ng-click="order('startDate')"  href="">
-                  Start Date
+                  Date
                </a>
                <a flex ="20 " ng-click="order('endDate')"  href="">
-                  End Date
+                  Time
                </a>
             </div >
  

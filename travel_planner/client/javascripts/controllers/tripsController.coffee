@@ -20,18 +20,12 @@ angular.module("TravePlannerApp.contorller.tripsController", ['720kb.datepicker'
       when "all" 
         true
         $scope.print.description = 'all trips'
-      when 'past' 
-        $scope.print.description = 'past trips'
-        trip.getDays() < 0
-      when 'future' 
-        $scope.print.description = 'future trips'
-        trip.getDays() >= 0
       when '30days' 
-        $scope.print.description = 'trips in 30 days'
+        $scope.print.description = 'in 30 days'
         trip.getDays() >= 0 and trip.getDays() <= 30
       when 'custom' 
         rt = true
-        $scope.print.description = 'all trips'
+        $scope.print.description = 'all expenses'
         if $scope.custom_filter.destination
           $scope.print.description = $scope.print.description+' to destination ' + $scope.custom_filter.destination
           rt = false if trip.destination.indexOf($scope.custom_filter.destination) < 0

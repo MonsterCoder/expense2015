@@ -8,17 +8,17 @@
       <h2 class="md-title">Trip Editor</h2>
       <form name   = "editTripForm">
         <md-input-container>
-          <label>Destination</label>
+          <label>Description</label>
           <input ng-required='true'  googleplace="" ng-model="edit_trip.destination">
         </md-input-container>
         <md-input-container>
-          <label class="lift-up">Start Date</label>
+          <label class="lift-up">Date</label>
           <datepicker date-format="yyyy-MM-dd"> 
-            <input ng-model="edit_trip.startDate" md-placeholder="Start Date" ng-change="onStartDateChanged()" ng-required='true' ></input>
+            <input ng-model="edit_trip.startDate" md-placeholder="Date" ng-change="onStartDateChanged()" ng-required='true' ></input>
           </datepicker>
         </md-input-container>
         <md-input-container>
-          <label class="lift-up">End Date</label>
+          <label class="lift-up">Time</label>
           <datepicker data-set="{{edit_trip.startDate}}" date-min-limit="{{edit_trip.startDate}}" date-format="yyyy-MM-dd"> 
             <input  ng-model="edit_trip.endDate" md-placeholder="End Date" ng-required='true'></input>
           </datepicker>

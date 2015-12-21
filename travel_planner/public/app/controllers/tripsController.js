@@ -12,16 +12,10 @@
       $scope.filter_by = "all";
       $scope.filters = [
         {
-          name: "All Trips",
+          name: "All Expenses",
           value: "all"
         }, {
-          name: "Past Trips",
-          value: "past"
-        }, {
-          name: "Future Trips",
-          value: "future"
-        }, {
-          name: "Start in 30 days",
+          name: "In 30 days",
           value: "30days"
         }, {
           name: "Custom filter",

@@ -11,16 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151010233113) do
+ActiveRecord::Schema.define(version: 20151221191436) do
 
   create_table "trips", force: :cascade do |t|
     t.string   "destination", null: false
     t.date     "startDate",   null: false
-    t.date     "endDate",     null: false
+    t.text     "endDate",     null: false
     t.text     "comment"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
+    t.decimal  "amount"
   end
 
   add_index "trips", ["user_id"], name: "index_trips_on_user_id"

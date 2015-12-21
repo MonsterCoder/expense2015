@@ -3,7 +3,7 @@ class CreateTrips < ActiveRecord::Migration
     create_table :trips do |t|
       t.string :destination, null: false
       t.date :startDate, null: false
-      t.date  :endDate, null: false
+      t.text  :endDate, null: false
       t.text :comment
       t.timestamps null: false
     end

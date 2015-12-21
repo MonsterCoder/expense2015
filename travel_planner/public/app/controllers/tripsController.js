@@ -3,6 +3,7 @@
     '$scope', 'trips', '$state', 'tripsService', '$mdDialog', function($scope, data, $state, tripsService, $mdDialog) {
       var ev;
       $scope.trips = tripsService.buildFromArray(data.trips);
+      console.log(data.trips);
       ev = {};
       $scope.print = {};
       $scope.print.open = function() {
@@ -28,18 +29,12 @@
           case "all":
             true;
             return $scope.print.description = 'all trips';
-          case 'past':
-            $scope.print.description = 'past trips';
-            return trip.getDays() < 0;
-          case 'future':
-            $scope.print.description = 'future trips';
-            return trip.getDays() >= 0;
           case '30days':
-            $scope.print.description = 'trips in 30 days';
+            $scope.print.description = 'in 30 days';
             return trip.getDays() >= 0 && trip.getDays() <= 30;
           case 'custom':
             rt = true;
-            $scope.print.description = 'all trips';
+            $scope.print.description = 'all expenses';
             if ($scope.custom_filter.destination) {
               $scope.print.description = $scope.print.description + ' to destination ' + $scope.custom_filter.destination;
               if (trip.destination.indexOf($scope.custom_filter.destination) < 0) {

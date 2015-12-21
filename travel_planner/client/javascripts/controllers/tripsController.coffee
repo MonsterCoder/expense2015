@@ -1,6 +1,7 @@
 angular.module("TravePlannerApp.contorller.tripsController", ['720kb.datepicker'])
 .controller("tripsController", ['$scope', 'trips', '$state', 'tripsService', '$mdDialog', ($scope, data, $state, tripsService, $mdDialog) ->
   $scope.trips = tripsService.buildFromArray data.trips
+
   ev = {}
   
   $scope.print ={}

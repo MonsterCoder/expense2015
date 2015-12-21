@@ -55,6 +55,9 @@
                <a flex ="20 " ng-click="order('endDate')"  href="">
                   Time
                </a>
+               <a flex ="10 " ng-click="order('amount')"  href="">
+                  Amount
+               </a>
             </div >
  
           </div>
@@ -73,7 +76,10 @@
                  {{item.startDate | date:'MMM d, y'}}
               </div>
               <div flex ="20 ">
-                 {{item.endDate | date:'MMM d, y'}}
+                 {{item.endDate | date: "HH:MM"}}
+              </div>
+              <div flex ="20 ">
+                 {{item.amount }}
               </div>
            </div >
            <div layout='row'>

@@ -33,11 +33,11 @@
         <p ng-repeat  = "err in errors">
           <small class='error'>{{err}}<br/></small>
         </p>
-        <div class="md-actions" layout="row" layout-align="end center">
-          <md-button class="md-button" ng-click="cancel()" >
+        <div  class="md-actions" layout="row" layout-align="end center">
+          <button type="button" class="md-button" ng-click="cancel()" >
             Cancel
-          </md-button>
-          <md-button class="md-raised md-primary" ng-click="signup()" ng-disabled="!signupForm.$valid">
+          </button>
+          <button type="button" class="md-raised md-primary" ng-click="signup()" ng-disabled="!signupForm.$valid">
             {{labels.action}}
           </button>
 

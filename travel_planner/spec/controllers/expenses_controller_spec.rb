@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe TripsController, type: :controller do
+RSpec.describe ExpensesController, type: :controller do
   let!(:user) { FactoryGirl.create(:user) }
   
   it " assigns logged user in controller" do

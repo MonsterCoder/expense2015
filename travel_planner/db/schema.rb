@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20151221191436) do
 
-  create_table "trips", force: :cascade do |t|
+  create_table "expenses", force: :cascade do |t|
     t.string   "destination", null: false
     t.date     "startDate",   null: false
     t.text     "endDate",     null: false
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20151221191436) do
     t.decimal  "amount"
   end
 
-  add_index "trips", ["user_id"], name: "index_trips_on_user_id"
+  add_index "expenses", ["user_id"], name: "index_expenses_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false

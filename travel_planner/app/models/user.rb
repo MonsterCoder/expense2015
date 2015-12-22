@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
-  has_many :trips
+  has_many :expenses
   validates :lastname, presence: true
   validates :firstname, presence: true
   validates :username, presence: true, uniqueness: true

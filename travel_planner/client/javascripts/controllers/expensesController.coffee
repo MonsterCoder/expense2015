@@ -1,6 +1,6 @@
-angular.module("TravePlannerApp.contorller.tripsController", ['720kb.datepicker'])
-.controller("tripsController", ['$scope', 'trips', '$state', 'tripsService', '$mdDialog', ($scope, data, $state, tripsService, $mdDialog) ->
-  $scope.trips = tripsService.buildFromArray data.trips
+angular.module("TravePlannerApp.contorller.expensesController", ['720kb.datepicker'])
+.controller("expensesController", ['$scope', 'expenses', '$state', 'expensesService', '$mdDialog', ($scope, data, $state, expensesService, $mdDialog) ->
+  $scope.expenses = expensesService.buildFromArray data.expenses
 
   ev = {}
   
@@ -16,26 +16,26 @@ angular.module("TravePlannerApp.contorller.tripsController", ['720kb.datepicker'
     {name: "Custom filter", value: "custom"}
   ]
   
-  $scope.filter_trips = (trip) ->
+  $scope.filter_expenses = (expense) ->
     switch $scope.filter_by 
       when "all" 
         true
-        $scope.print.description = 'all trips'
+        $scope.print.description = 'all expenses'
       when '30days' 
         $scope.print.description = 'in 30 days'
-        trip.getDays() >= 0 and trip.getDays() <= 30
+        expense.getDays() >= 0 and expense.getDays() <= 30
       when 'custom' 
         rt = true
         $scope.print.description = 'all expenses'
         if $scope.custom_filter.destination
           $scope.print.description = $scope.print.description+' to destination ' + $scope.custom_filter.destination
-          rt = false if trip.destination.indexOf($scope.custom_filter.destination) < 0
+          rt = false if expense.destination.indexOf($scope.custom_filter.destination) < 0
         if $scope.custom_filter.startDate
           $scope.print.description = $scope.print.description+' from ' + new moment($scope.custom_filter.startDate).format('YYYY-MM-DD')
-          rt = false if trip.startDate < $scope.custom_filter.startDate
+          rt = false if expense.startDate < $scope.custom_filter.startDate
         if $scope.custom_filter.endDate
           $scope.print.description = $scope.print.description+' ends before ' + new moment($scope.custom_filter.endDate).format('YYYY-MM-DD')
-          rt = false if trip.endDate > $scope.custom_filter.endDate     
+          rt = false if expense.endDate > $scope.custom_filter.endDate     
         
         rt
       else
@@ -52,30 +52,30 @@ angular.module("TravePlannerApp.contorller.tripsController", ['720kb.datepicker'
   
   $scope.delete = (idx) ->
     confirm = $mdDialog.confirm(ev)
-          .title('Are you sure to delete this trip?')
+          .title('Are you sure to delete this expense?')
           .content('')
-          .ariaLabel('Delete trip')
+          .ariaLabel('Delete expense')
           .targetEvent(ev)
           .ok('Confirm!')
           .cancel('Cancel');
 
     $mdDialog.show(confirm).then(() ->
-      t = new tripsService($scope.trips[idx])
+      t = new expensesService($scope.expenses[idx])
       t.$delete()
       .then () ->
-        $scope.trips.splice(idx, 1)
-        data.trips.splice(idx, 1)
-        $state.go("trips.list", {}, {reload: 'trips'})
+        $scope.expenses.splice(idx, 1)
+        data.expenses.splice(idx, 1)
+        $state.go("expenses.list", {}, {reload: 'expenses'})
         
     )
     
 
       
   $scope.add = ->
-    $scope.edit_trip = {}
+    $scope.edit_expense = {}
     
   $scope.edit = (idx) ->
-    $state.go("trips.edit_trip", {idx : idx})
+    $state.go("expenses.edit_expense", {idx : idx})
 ])    
 
 

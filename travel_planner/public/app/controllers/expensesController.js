@@ -3,7 +3,6 @@
     '$scope', 'expenses', '$state', 'expensesService', '$mdDialog', function($scope, data, $state, expensesService, $mdDialog) {
       var ev;
       $scope.expenses = expensesService.buildFromArray(data.expenses);
-      console.log(data.expenses);
       ev = {};
       $scope.print = {};
       $scope.print.open = function() {

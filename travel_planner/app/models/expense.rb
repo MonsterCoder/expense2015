@@ -1,4 +1,4 @@
-class Trip < ActiveRecord::Base
+class Expense < ActiveRecord::Base
   belongs_to :user
   validates :destination, presence: true
   validates :startDate, presence: true

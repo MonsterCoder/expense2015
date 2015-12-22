@@ -1,1 +1,1 @@
-angular.module("TravePlannerApp.contorllers", ['TravePlannerApp.contorller.loginController','TravePlannerApp.contorller.tripsController','TravePlannerApp.contorller.signupController', "TravePlannerApp.contorller.adminController"])
+angular.module("TravePlannerApp.contorllers", ['TravePlannerApp.contorller.loginController','TravePlannerApp.contorller.expensesController','TravePlannerApp.contorller.signupController', "TravePlannerApp.contorller.adminController"])

@@ -1,4 +1,4 @@
-describe "eidtTripController", ->
+describe "eidtExpenseController", ->
   trips = []
   $scope = {}
   $httpBackend = {}
@@ -19,7 +19,7 @@ describe "eidtTripController", ->
       { id: 1, destination: 'city1', startDate: "Sun Oct 11 2015 14:16:02 GMT-0500 (CDT)", endDate: "Sun Oct 12 2015 14:16:02 GMT-0500 (CDT)", comment: 'comment 1'},
       { id: 2, destination: 'city2', startDate: "Sun Oct 13 2015 14:16:02 GMT-0500 (CDT)", endDate: "Sun Oct 14 2015 14:16:02 GMT-0500 (CDT)", comment: 'comment 2'},
     ]
-    _$controller_("editTripController", {$scope: $scope, trips: {trips: trips}, $stateParams: {idx: 1}})
+    _$controller_("editExpenseController", {$scope: $scope, trips: {trips: trips}, $stateParams: {idx: 1}})
   
   xit " edits a trip to edit", ->
     count = $scope.trips.length

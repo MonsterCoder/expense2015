@@ -141,7 +141,7 @@ md-toolbar.background-transparent {
     margin: auto;
 }
 
-.trip-title {
+.expense-title {
     font-weight: bold;
     font-size: 120%;
 }
@@ -176,7 +176,7 @@ md-input-container .lift-up {
      display: none !important;
     }
     
-    .trip-content {
+    .expense-content {
         max-width: 100% !important;
             width: 100% !important;
             flex: 100 !important;

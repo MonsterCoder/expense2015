@@ -1,5 +1,5 @@
 class AddAmountToExpense < ActiveRecord::Migration
   def change
-  	add_column :trips, :amount, :decimal
+  	add_column :expenses, :amount, :decimal
   end
 end

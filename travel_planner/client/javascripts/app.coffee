@@ -1,6 +1,6 @@
- angular.module("TravePlannerApp", ['ngMdIcons', 'ui.router','720kb.datepicker','TravePlannerApp.interceptor', 'TravePlannerApp.service.UserProfileService', 'TravePlannerApp.service.usersService', 'TravePlannerApp.service.tripsService','TravePlannerApp.contorllers','ngMaterial'])
+ angular.module("TravePlannerApp", ['ngMdIcons', 'ui.router','720kb.datepicker','TravePlannerApp.interceptor', 'TravePlannerApp.service.UserProfileService', 'TravePlannerApp.service.usersService', 'TravePlannerApp.service.expensesService','TravePlannerApp.contorllers','ngMaterial'])
  .config(['$urlRouterProvider','$stateProvider','$httpProvider', '$mdThemingProvider', ($urlRouterProvider, $stateProvider, $httpProvider, $mdThemingProvider) ->
-    $urlRouterProvider.when("/trips", "/trips/list")
+    $urlRouterProvider.when("/expenses", "/expenses/list")
     $urlRouterProvider.when("/admin", "/admin/list")
     $urlRouterProvider.otherwise("/welcome")
     
@@ -23,36 +23,36 @@
       }
       controller : 'signupController'
     )
-    .state('trips', 
-      url : '/trips'
-      templateUrl: 'app/views/trips/trips.html'
+    .state('expenses', 
+      url : '/expenses'
+      templateUrl: 'app/views/expenses/expenses.html'
       data:
         login: true
       resolve: 
-        trips: [ 'tripsService', (tripsService) ->
-          tripsService.get().$promise
+        expenses: [ 'expensesService', (expensesService) ->
+          expensesService.get().$promise
         ]   
     )
-    .state('trips.list',
+    .state('expenses.list',
       url : '/'
-      templateUrl: 'app/views/trips/list.html'
+      templateUrl: 'app/views/expenses/list.html'
       data:
         login: true
-      controller: 'tripsController'
+      controller: 'expensesController'
     )
-    .state('trips.new_trip',
+    .state('expenses.new_expense',
       url : '/new'
       data:
         login: true
-      templateUrl: 'app/views/trips/new_trip.html'
-      controller: 'newTripController'
+      templateUrl: 'app/views/expenses/new_expense.html'
+      controller: 'newExpenseController'
     )
-    .state('trips.edit_trip',
+    .state('expenses.edit_expense',
       url : '/edit/:idx'
       data:
         login: true
-      templateUrl: 'app/views/trips/new_trip.html'
-      controller: 'editTripController'
+      templateUrl: 'app/views/expenses/new_expense.html'
+      controller: 'editExpenseController'
     )
     .state('admin',
       url : '/admin'

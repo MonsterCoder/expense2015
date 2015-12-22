@@ -21,12 +21,12 @@
     
     <script src="app/controllers/signupController.js"></script>
     <script src="app/controllers/loginController.js"></script>
-    <script src="app/controllers/tripsController.js"></script>
-    <script src="app/controllers/newTripController.js"></script>
-    <script src="app/controllers/editTripController.js"></script>
+    <script src="app/controllers/expensesController.js"></script>
+    <script src="app/controllers/newExpenseController.js"></script>
+    <script src="app/controllers/editExpenseController.js"></script>
     <script src="app/controllers/adminController.js"></script>
     <script src="app/controllers/controllers.js"></script>
-    <script src="app/services/tripsService.js"></script>
+    <script src="app/services/expensesService.js"></script>
     <script src="app/services/userProfileService.js"></script>
     <script src="app/services/usersService.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.6.0/angular-material-icons.min.js"></script> 
@@ -61,7 +61,7 @@
             <span flex></span>
             <div >
                 <md-button class="" ng-show="UserProfileService.isAdmin()" ui-sref="admin.list" href="admim/">Dashboard</md-button>
-                <md-button class="" ng-show="UserProfileService.isLoggedIn() && !UserProfileService.isAdmin()" ui-sref="trips.list" href="">My Expenses</md-button>
+                <md-button class="" ng-show="UserProfileService.isLoggedIn() && !UserProfileService.isAdmin()" ui-sref="expenses.list" href="">My Expenses</md-button>
                 <md-button class="" ng-hide="UserProfileService.isLoggedIn() || (state.current.name =='login')" ui-sref="login" href="">Log in</md-button>
                 <md-button class="" ng-show="UserProfileService.isLoggedIn() " ng-click="logout() " href="">Logout </md-button>
                 <md-button class="" ui-sref="signup" ng-hide="UserProfileService.isLoggedIn()">Sign Up</md-button>

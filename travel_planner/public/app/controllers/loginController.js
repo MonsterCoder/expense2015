@@ -12,7 +12,7 @@
           if (UserProfileService.isAdmin()) {
             return $state.go("admin.list");
           } else {
-            return $state.go("trips.list");
+            return $state.go("expenses.list");
           }
         })["catch"](function(err) {
           var message;

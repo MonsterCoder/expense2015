@@ -24,7 +24,7 @@ describe "trips" do
     
     it " creates a trip " do
       t = FactoryGirl.build(:trip, user: @user1)
-      expect{post trips_path, t.to_json, headers}.to change(Trip, :count).by 1
+      expect{post trips_path, t.to_json, headers}.to change(Expense, :count).by 1
       expect(response.status).to equal 200 
       
     end
@@ -41,7 +41,7 @@ describe "trips" do
     
     it " delete a trip " do
       t = FactoryGirl.create(:trip, user: @user1)
-      expect{ delete trip_path(t), {}, headers}.to change(Trip, :count).by -1
+      expect{ delete trip_path(t), {}, headers}.to change(Expense, :count).by -1
       expect(response.status).to equal 200 
       
     end

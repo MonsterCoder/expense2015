@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Trip, type: :model do
+RSpec.describe Expense, type: :model do
   before :all do
     @user = FactoryGirl.create(:user)
   end

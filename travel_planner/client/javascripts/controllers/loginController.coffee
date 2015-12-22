@@ -10,7 +10,7 @@ angular.module("TravePlannerApp.contorller.loginController",[])
       if UserProfileService.isAdmin()
         $state.go("admin.list")
       else
-        $state.go("trips.list")
+        $state.go("expenses.list")
     .catch (err) ->
       console.log "!!!!"
       console.log err

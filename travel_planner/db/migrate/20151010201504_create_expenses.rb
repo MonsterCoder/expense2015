@@ -1,6 +1,6 @@
-class CreateTrips < ActiveRecord::Migration
+class CreateExpenses < ActiveRecord::Migration
   def change
-    create_table :trips do |t|
+    create_table :expenses do |t|
       t.string :destination, null: false
       t.date :startDate, null: false
       t.text  :endDate, null: false

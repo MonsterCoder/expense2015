@@ -23,7 +23,7 @@
         startDate: t.startDate,
         endDate: new Date(t.endDate),
         comment: t.comment,
-        amount: t.amount
+        amount: parseFloat(t.amount)
       };
       console.log($scope.edit_expense);
       return $scope.save = function() {

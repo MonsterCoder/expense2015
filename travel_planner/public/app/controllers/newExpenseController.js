@@ -17,6 +17,7 @@
           t.startDate = $scope.edit_expense.startDate;
           t.endDate = $scope.edit_expense.endDate;
           t.comment = $scope.edit_expense.comment;
+          t.amount = $scope.edit_expense.amount;
           data.expenses.push(t);
           return $state.go('expenses.list');
         })["catch"](function(err) {

@@ -15,6 +15,7 @@ angular.module("TravePlannerApp.contorller.expensesController")
       t.startDate = $scope.edit_expense.startDate
       t.endDate = $scope.edit_expense.endDate
       t.comment = $scope.edit_expense.comment
+      t.amount = $scope.edit_expense.amount
       data.expenses.push t
       $state.go('expenses.list')
     .catch  (err) ->

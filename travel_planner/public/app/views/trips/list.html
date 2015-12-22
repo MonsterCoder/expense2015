@@ -76,10 +76,10 @@
                  {{item.startDate | date:'MMM d, y'}}
               </div>
               <div flex ="20 ">
-                 {{item.endDate | date: "HH:MM"}}
+                 {{item.endDate | date: "HH:MM a"}}
               </div>
               <div flex ="20 ">
-                 {{item.amount }}
+                 {{item.amount | currency : symbol : fractionSize}}
               </div>
            </div >
            <div layout='row'>

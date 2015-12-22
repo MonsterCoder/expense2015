@@ -50,7 +50,10 @@ angular.module("TravePlannerApp.contorller.expensesController", ['720kb.datepick
     $scope.reverse = if ($scope.predicate == predicate) then !$scope.reverse  else  false
     $scope.predicate = predicate;
   
-  $scope.delete = (idx) ->
+  $scope.delete = (item) ->
+    t = new expensesService(item)
+    console.log item
+
     confirm = $mdDialog.confirm(ev)
           .title('Are you sure to delete this expense?')
           .content('')
@@ -60,11 +63,11 @@ angular.module("TravePlannerApp.contorller.expensesController", ['720kb.datepick
           .cancel('Cancel');
 
     $mdDialog.show(confirm).then(() ->
-      t = new expensesService($scope.expenses[idx])
       t.$delete()
       .then () ->
-        $scope.expenses.splice(idx, 1)
-        data.expenses.splice(idx, 1)
+        p = $scope.expenses.indexOf item
+        $scope.expenses.splice(p, 1)
+        data.expenses.splice(p, 1)
         $state.go("expenses.list", {}, {reload: 'expenses'})
         
     )
@@ -74,8 +77,8 @@ angular.module("TravePlannerApp.contorller.expensesController", ['720kb.datepick
   $scope.add = ->
     $scope.edit_expense = {}
     
-  $scope.edit = (idx) ->
-    $state.go("expenses.edit_expense", {idx : idx})
+  $scope.edit = (item) ->
+    $state.go("expenses.edit_expense", {idx : item.id})
 ])    
 
 

@@ -63,15 +63,17 @@
         $scope.reverse = $scope.predicate === predicate ? !$scope.reverse : false;
         return $scope.predicate = predicate;
       };
-      $scope["delete"] = function(idx) {
-        var confirm;
+      $scope["delete"] = function(item) {
+        var confirm, t;
+        t = new expensesService(item);
+        console.log(item);
         confirm = $mdDialog.confirm(ev).title('Are you sure to delete this expense?').content('').ariaLabel('Delete expense').targetEvent(ev).ok('Confirm!').cancel('Cancel');
         return $mdDialog.show(confirm).then(function() {
-          var t;
-          t = new expensesService($scope.expenses[idx]);
           return t.$delete().then(function() {
-            $scope.expenses.splice(idx, 1);
-            data.expenses.splice(idx, 1);
+            var p;
+            p = $scope.expenses.indexOf(item);
+            $scope.expenses.splice(p, 1);
+            data.expenses.splice(p, 1);
             return $state.go("expenses.list", {}, {
               reload: 'expenses'
             });
@@ -81,9 +83,9 @@
       $scope.add = function() {
         return $scope.edit_expense = {};
       };
-      return $scope.edit = function(idx) {
+      return $scope.edit = function(item) {
         return $state.go("expenses.edit_expense", {
-          idx: idx
+          idx: item.id
         });
       };
     }

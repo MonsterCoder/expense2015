@@ -3,15 +3,10 @@
     '$scope', 'expenses', 'expensesService', '$state', function($scope, data, expensesService, $state) {
       $scope.expenses = data.expenses;
       $scope.edit_expense = {};
-      $scope.onStartDateChanged = function() {
-        var sdate;
-        sdate = moment($scope.edit_expense.startDate);
-        if (sdate.isValid() && !$scope.edit_expense.endDate) {
-          return $scope.edit_expense.endDate = $scope.edit_expense.startDate;
-        }
-      };
+      $scope.onStartDateChanged = function() {};
+      $scope.today = new Date();
       $scope.dateValidate = function() {
-        return $scope.edit_expense.endDate < $scope.edit_expense.startDateDate;
+        return true;
       };
       return $scope.save = function() {
         var t;

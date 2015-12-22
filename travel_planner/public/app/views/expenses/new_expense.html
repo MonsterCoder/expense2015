@@ -9,28 +9,28 @@
       <form name   = "editExpenseForm">
         <md-input-container>
           <label>Description</label>
-          <input ng-required='true'  googleplace="" ng-model="edit_expense.destination">
+          <input ng-required='true'  ng-model="edit_expense.destination">
         </md-input-container>
         <md-input-container>
           <label class="lift-up">Date</label>
           <datepicker date-format="yyyy-MM-dd"> 
-            <input ng-model="edit_expense.startDate" md-placeholder="Date" ng-change="onStartDateChanged()" ng-required='true' ></input>
+            <input ng-model="edit_expense.startDate" md-placeholder="Date" ng-change="onStartDateChanged()" ng-required='true' min="today"></input>
           </datepicker>
         </md-input-container>
         <md-input-container>
           <label >Time</label>
-          <input  ng-model="edit_expense.endDate" md-placeholder="End Date" type="time" ng-required='true'></input>
+          <input  ng-model="edit_expense.endDate " placeholder="HH:mm:ss" min="00:00:00" max="24:00:00" md-placeholder="End Date" type="time" ng-required='true'></input>
  
         </md-input-container>
         <md-input-container>
           <label >Amount</label>
-          <input ng-model="edit_expense.amount" md-placeholder="Amount" type="number" ng-required='true' ></input>
+          <input ng-model="edit_expense.amount" type="number" step="0.01" min="0"  md-placeholder="Amount" ng-required='true' ></input>
 
         </md-input-container>
         <md-input-container flex="">
           <label>Comment</label>
           <textarea ng-model="edit_expense.comment" columns="1" md-maxlength="150"></textarea>
-           <small class ="error lift-up "ng-show="edit_expense.endDate < edit_expense.startDate" class='error'> Start date cannot be later than end date.</small>
+           
         </md-input-container>
         <p ng-repeat  = "err in errors">
           <small class='error'>{{err}}</small>       

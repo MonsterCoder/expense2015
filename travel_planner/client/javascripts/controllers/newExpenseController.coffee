@@ -3,12 +3,9 @@ angular.module("TravePlannerApp.contorller.expensesController")
   $scope.expenses = data.expenses
   $scope.edit_expense = {}
   $scope.onStartDateChanged = () ->
-    sdate = moment($scope.edit_expense.startDate)
-    if sdate.isValid() and !$scope.edit_expense.endDate
-      $scope.edit_expense.endDate = $scope.edit_expense.startDate
-      
-  $scope.dateValidate = () ->
-    $scope.edit_expense.endDate < $scope.edit_expense.startDateDate
+
+  $scope.today = new Date()
+  $scope.dateValidate = () -> true
   $scope.save = ->
     t = new expensesService($scope.edit_expense)
     t.$save()

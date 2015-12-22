@@ -67,7 +67,7 @@
          <div class="expense-content" layout="column" flex=80>
            <div layout="row">
               <div flex =10>
-                 <span ng-hide = "item.getDays() < 0" class="md-fab" ></span>
+              
               </div>
               <div flex =35>
                 <span class="expense-title">{{item.destination}}</span>
@@ -88,10 +88,10 @@
            </div>
         </div>
         <div class ="actions" flex=20>
-              <md-button ng-click="delete($index)" class="menu-acition-button">
+              <md-button ng-click="delete(item)" class="menu-acition-button">
                 <ng-md-icon icon="remove_circle_outline" style="fill: red" ></ng-md-icon> 
               </md-button>
-              <md-button ng-click="edit($index)" class="menu-acition-button">
+              <md-button ng-click="edit(item)" class="menu-acition-button">
                 <ng-md-icon icon="edit" style="fill: green" ></ng-md-icon> 
               </md-button>
 

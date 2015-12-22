@@ -29,6 +29,9 @@ angular.module("TravePlannerApp.contorller.expensesController", ['720kb.datepick
         if $scope.custom_filter.startDate
           $scope.print.description = $scope.print.description+' from ' + new moment($scope.custom_filter.startDate).format('YYYY-MM-DD')
           rt = false if expense.startDate < $scope.custom_filter.startDate
+        if $scope.custom_filter.endDate
+          $scope.print.description = $scope.print.description+' till ' + new moment($scope.custom_filter.startDate).format('YYYY-MM-DD')
+          rt = false if expense.startDate > $scope.custom_filter.endDate
         if $scope.custom_filter.amount
           $scope.print.description = $scope.print.description+' amount more than ' + $scope.custom_filter.amount
           rt = false if expense.amount < $scope.custom_filter.amount     

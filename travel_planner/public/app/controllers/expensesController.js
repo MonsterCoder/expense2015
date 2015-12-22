@@ -40,6 +40,12 @@
                 rt = false;
               }
             }
+            if ($scope.custom_filter.endDate) {
+              $scope.print.description = $scope.print.description + ' till ' + new moment($scope.custom_filter.startDate).format('YYYY-MM-DD');
+              if (expense.startDate > $scope.custom_filter.endDate) {
+                rt = false;
+              }
+            }
             if ($scope.custom_filter.amount) {
               $scope.print.description = $scope.print.description + ' amount more than ' + $scope.custom_filter.amount;
               if (expense.amount < $scope.custom_filter.amount) {

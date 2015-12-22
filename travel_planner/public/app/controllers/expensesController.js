@@ -57,7 +57,21 @@
             return false;
         }
       };
-      $scope.predicate = 'getDays()';
+      $scope.getWeekTotal = function(week) {
+        var i, j, len, ref, total;
+        total = 0;
+        ref = $scope.expenses;
+        for (j = 0, len = ref.length; j < len; j++) {
+          i = ref[j];
+          if (i.getWeek() == week) {
+            total = total + parseFloat(i.amount);
+          }
+        }
+        return total;
+      };
+      $scope.getDaliyAverage = function(week) {
+        return $scope.getWeekTotal(week) / 7;
+      };
       $scope.reverse = false;
       $scope.order = function(predicate) {
         $scope.reverse = $scope.predicate === predicate ? !$scope.reverse : false;

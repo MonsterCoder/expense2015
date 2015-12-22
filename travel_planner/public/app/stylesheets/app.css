@@ -170,6 +170,11 @@ md-input-container .lift-up {
 .print-only {
     display: none;
 }
+
+.summary-row {
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+}
 @media print {
     .filter, .actions, md-toolbar
     {    

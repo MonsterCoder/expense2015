@@ -3,9 +3,9 @@
     '$resource', function($resource) {
       var build, s;
       build = function(a) {
-        if (!a.getDays) {
-          a.getDays = function() {
-            return moment.duration(moment(this.startDate) - moment(Date())).asDays();
+        if (!a.getWeek) {
+          a.getWeek = function() {
+            return moment(this.startDate).week();
           };
         }
         return a;

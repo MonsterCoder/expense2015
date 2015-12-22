@@ -1,5 +1,5 @@
 (function() {
-  angular.module("TravePlannerApp", ['ngMdIcons', 'ui.router', '720kb.datepicker', 'TravePlannerApp.interceptor', 'TravePlannerApp.service.UserProfileService', 'TravePlannerApp.service.usersService', 'TravePlannerApp.service.expensesService', 'TravePlannerApp.contorllers', 'ngMaterial']).config([
+  angular.module("TravePlannerApp", ['ngMdIcons', 'angular.filter', 'ui.router', '720kb.datepicker', 'TravePlannerApp.interceptor', 'TravePlannerApp.service.UserProfileService', 'TravePlannerApp.service.usersService', 'TravePlannerApp.service.expensesService', 'TravePlannerApp.contorllers', 'ngMaterial']).config([
     '$urlRouterProvider', '$stateProvider', '$httpProvider', '$mdThemingProvider', function($urlRouterProvider, $stateProvider, $httpProvider, $mdThemingProvider) {
       $urlRouterProvider.when("/expenses", "/expenses/list");
       $urlRouterProvider.when("/admin", "/admin/list");

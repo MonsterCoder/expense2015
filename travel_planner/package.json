@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "angular-filter": "^0.5.8",
     "bower": "^1.6.2",
     "phantomjs": "^1.9.18"
   },

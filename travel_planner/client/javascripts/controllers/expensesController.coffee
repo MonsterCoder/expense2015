@@ -43,7 +43,13 @@ angular.module("TravePlannerApp.contorller.expensesController", ['720kb.datepick
  
   
 
-  $scope.predicate = 'getDays()';
+  $scope.getWeekTotal = (week) ->
+    total = 0
+    (total = total + parseFloat(i.amount) for i in $scope.expenses when `i.getWeek() == week`)
+    total
+  $scope.getDaliyAverage = (week) ->
+    $scope.getWeekTotal(week) / 7
+
   $scope.reverse = false;
   $scope.order = (predicate) ->
     $scope.reverse = if ($scope.predicate == predicate) then !$scope.reverse  else  false

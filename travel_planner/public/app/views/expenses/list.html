@@ -38,7 +38,7 @@
   
 </div>
   <div class="print-only" layout="column" layout-align="center center">
-    <h2 > Your travel plan <small>( {{print.description}} )</small></h2>
+    <h2 > Expense Tracker {{print.description}} )</small></h2>
     
   </div>
   <ul class="list-layout printable" >
@@ -66,40 +66,53 @@
  
           </div>
         </li>
-       <li class = "list-item"  ng-repeat=" item in  expenses | filter: filter_expenses | orderBy:predicate:reverse" layout="row">
+       <li class = ""  ng-repeat=" (key,value) in  expenses | groupBy: 'getWeek()'"  layout="column">
 
-         <div class="expense-content" layout="column" flex=80>
-           <div layout="row">
-              <div flex =10>
-              
-              </div>
-              <div flex =35>
-                <span class="expense-title">{{item.destination}}</span>
-              </div>
-              <div flex ="15 ">
-                 {{item.startDate | date:'MMM d, y'}}
-              </div>
-              <div flex ="20 ">
-                 {{item.endDate | date: "HH:MM a"}}
-              </div>
-              <div flex ="20 ">
-                 {{item.amount | currency : symbol : fractionSize}}
-              </div>
-           </div >
-           <div layout='row'>
-             <div flex=10></div>
-            <p class='comment'>{{item.comment}} </p>
-           </div>
-        </div>
-        <div class ="actions" flex=20>
-              <md-button ng-click="delete(item)" class="menu-acition-button">
-                <ng-md-icon icon="remove_circle_outline" style="fill: red" ></ng-md-icon> 
-              </md-button>
-              <md-button ng-click="edit(item)" class="menu-acition-button">
-                <ng-md-icon icon="edit" style="fill: green" ></ng-md-icon> 
-              </md-button>
+          <ul flex>
+            <li ng-repeat="item in value | filter: filter_expenses" layout="row" flex>
+                 <div class="expense-content " layout="column" flex=80>
+                   <div layout="row">
+                      <div flex =10>
+                          
+                      </div>
+                      <div flex =35>
+                        <span class="expense-title">{{item.destination}}</span>
+                      </div>
+                      <div flex ="15 ">
+                         {{item.startDate | date:'MMM d, y'}}
+                      </div>
+                      <div flex ="20 ">
+                         {{item.endDate | date: "HH:MM a"}}
+                      </div>
+                      <div flex ="20 ">
+                         {{item.amount | currency : symbol : fractionSize}}
+                      </div>
+                   </div >
+                   <div layout='row'>
+                     <div flex=10></div>
+                    <p class='comment'>{{item.comment}} </p>
+                   </div>
+                </div>
+                <div class ="actions" flex=20>
+                      <md-button ng-click="delete(item)" class="menu-acition-button">
+                        <ng-md-icon icon="remove_circle_outline" style="fill: red" ></ng-md-icon> 
+                      </md-button>
+                      <md-button ng-click="edit(item)" class="menu-acition-button">
+                        <ng-md-icon icon="edit" style="fill: green" ></ng-md-icon> 
+                      </md-button>
 
-         </div>
+                 </div>
+              </li>
+          </ul>
+          <div layout="row" class="summary-row">
+              <span flex>
+                      <div>
+                        <small>Week Total: {{getWeekTotal(key)| currency : symbol : fractionSize}}</small> ----
+                        <small> Daliy Averable: {{getDaliyAverage(key)| currency : symbol : fractionSize}} </small>
+                      </div>
+
+
+          </div >
       </li >
 
       

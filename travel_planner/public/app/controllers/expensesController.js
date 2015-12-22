@@ -15,9 +15,6 @@
           name: "All Expenses",
           value: "all"
         }, {
-          name: "In 30 days",
-          value: "30days"
-        }, {
           name: "Custom filter",
           value: "custom"
         }
@@ -28,9 +25,6 @@
           case "all":
             true;
             return $scope.print.description = 'all expenses';
-          case '30days':
-            $scope.print.description = 'in 30 days';
-            return expense.getDays() >= 0 && expense.getDays() <= 30;
           case 'custom':
             rt = true;
             $scope.print.description = 'all expenses';
@@ -46,9 +40,9 @@
                 rt = false;
               }
             }
-            if ($scope.custom_filter.endDate) {
-              $scope.print.description = $scope.print.description + ' ends before ' + new moment($scope.custom_filter.endDate).format('YYYY-MM-DD');
-              if (expense.endDate > $scope.custom_filter.endDate) {
+            if ($scope.custom_filter.amount) {
+              $scope.print.description = $scope.print.description + ' amount more than ' + $scope.custom_filter.amount;
+              if (expense.amount < $scope.custom_filter.amount) {
                 rt = false;
               }
             }

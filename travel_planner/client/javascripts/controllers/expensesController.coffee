@@ -12,7 +12,6 @@ angular.module("TravePlannerApp.contorller.expensesController", ['720kb.datepick
   $scope.filter_by = "all"
   $scope.filters = [
     {name: "All Expenses",  value: "all"},
-    {name: "In 30 days", value: "30days"}
     {name: "Custom filter", value: "custom"}
   ]
   
@@ -21,9 +20,6 @@ angular.module("TravePlannerApp.contorller.expensesController", ['720kb.datepick
       when "all" 
         true
         $scope.print.description = 'all expenses'
-      when '30days' 
-        $scope.print.description = 'in 30 days'
-        expense.getDays() >= 0 and expense.getDays() <= 30
       when 'custom' 
         rt = true
         $scope.print.description = 'all expenses'
@@ -33,9 +29,9 @@ angular.module("TravePlannerApp.contorller.expensesController", ['720kb.datepick
         if $scope.custom_filter.startDate
           $scope.print.description = $scope.print.description+' from ' + new moment($scope.custom_filter.startDate).format('YYYY-MM-DD')
           rt = false if expense.startDate < $scope.custom_filter.startDate
-        if $scope.custom_filter.endDate
-          $scope.print.description = $scope.print.description+' ends before ' + new moment($scope.custom_filter.endDate).format('YYYY-MM-DD')
-          rt = false if expense.endDate > $scope.custom_filter.endDate     
+        if $scope.custom_filter.amount
+          $scope.print.description = $scope.print.description+' amount more than ' + $scope.custom_filter.amount
+          rt = false if expense.amount < $scope.custom_filter.amount     
         
         rt
       else

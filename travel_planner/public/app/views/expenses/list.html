@@ -15,16 +15,14 @@
       <input ng-model="custom_filter.destination"></input>
     </md-input-container>
     <md-input-container class="push-down">
-      <label class="lift-up">Date</label>
+      <label class="lift-up">date after: </label>
       <datepicker date-format="yyyy-MM-dd"> 
-        <input  ng-model="custom_filter.startDate" md-placeholder="From" ></input>
+        <input  ng-model="custom_filter.startDate" md-placeholder="date fater:" ></input>
       </datepicker>
     </md-input-container>
-    <md-input-container  class="push-down">
-      <label class="lift-up">Time</label>
-      <datepicker date-format="yyyy-MM-dd"> 
-        <input  ng-model="custom_filter.endDate" md-placeholder="To" ></input>
-      </datepicker>
+    <md-input-container>
+      <label class="">more than: </label>
+      <input ng-model="custom_filter.amount"></input>
     </md-input-container>
   </div>
   <md-select ng-model="filter_by">

@@ -33,5 +33,4 @@ config/secrets.yml
 # Ignore pow environment settings
 .powenv:
 
-/public/components
 /public/assets/

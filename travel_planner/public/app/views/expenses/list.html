@@ -67,7 +67,7 @@
           </div>
         </li>
        <li class = ""  ng-repeat=" (key,value) in  expenses | groupBy: 'getWeek()'"  layout="column">
-
+        <div>
           <ul flex>
             <li ng-repeat="item in value | filter: filter_expenses" layout="row" flex>
                  <div class="expense-content " layout="column" flex=80>
@@ -104,8 +104,9 @@
                  </div>
               </li>
           </ul>
+          <div>
           <div layout="row" class="summary-row">
-              <span flex>
+              <span flex></span>
                       <div>
                         <small>Week Total: {{getWeekTotal(key)| currency : symbol : fractionSize}}</small> ----
                         <small> Daliy Averable: {{getDaliyAverage(key)| currency : symbol : fractionSize}} </small>
